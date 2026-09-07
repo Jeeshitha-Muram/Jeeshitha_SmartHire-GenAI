@@ -9,6 +9,7 @@ DATA_DIR = PROJECT_ROOT / "data"
 JOBS_DIR = DATA_DIR / "jobs"                  # job dataset (CSV)
 RESUMES_DIR = DATA_DIR / "resumes"            # sample resumes to test the parser
 CAREER_NOTES_DIR = DATA_DIR / "career_notes"  # docs the AI mentor retrieves from
+EMBEDDINGS_DIR = DATA_DIR / "embeddings"
 
 VECTORSTORE_DIR = PROJECT_ROOT / "vectorstore"  # saved FAISS index lives here
 JOBS_INDEX_DIR = VECTORSTORE_DIR / "jobs_faiss"       # FAISS index of job postings
@@ -19,11 +20,10 @@ JOBS_CSV = JOBS_DIR / "naukri_com-job_sample.csv"
 
 # ---- Models (Gemini, same stack used across the course) ----
 # The LLM used for parsing, CV suggestions, and the mentor's answers.
-CHAT_MODEL = "gemini-2.5-flash-lite"
+CHAT_MODEL = "gemini-3.5-flash-lite"
 # The embedding model used for semantic job search and RAG retrieval.
-EMBED_MODEL = "models/gemini-embedding-001"
-# gemini-embedding-001 returns 768-dim vectors.
-EMBED_DIM = 768
+EMBED_MODEL = "BAAI/bge-small-en-v1.5"
+EMBED_DIM = 384
 
 # The API key is read from the environment variable below (see .env.example).
 # Never put the real key in code — keep it in .env, which .gitignore excludes.

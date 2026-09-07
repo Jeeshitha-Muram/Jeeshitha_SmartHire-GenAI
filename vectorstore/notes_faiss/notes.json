@@ -1,0 +1,417 @@
+[
+  {
+    "index": 0,
+    "source": "data_analyst_roadmap.md",
+    "text": "# How to Become a Data Analyst\n\nA data analyst collects, cleans, and interprets data to help a business make\ndecisions. It is one of the most common first roles for people moving into data.\n\n## Core skills\n- **SQL** — the single most important skill. You must be able to write SELECT\n  queries with JOINs, GROUP BY, and filtering.\n- **Spreadsheets** — Excel or Google Sheets: pivot tables, lookups, charts.\n- **A visualisation tool** — Power BI or Tableau to build dashboards.\n- **Statistics basics** — averages, distributions, correlation, and how to\n  spot a misleading chart.\n- **Python (optional but valued)** — pandas for cleaning and matplotlib for plots.\n\n## Switching from another role\nIf you are coming from a non-data job, the fastest path is:\n1. Learn SQL first and practise on real datase"
+  },
+  {
+    "index": 1,
+    "source": "data_analyst_roadmap.md",
+    "text": "for plots.\n\n## Switching from another role\nIf you are coming from a non-data job, the fastest path is:\n1. Learn SQL first and practise on real datasets.\n2. Rebuild reports you already make by hand into a dashboard.\n3. Do two or three portfolio projects analysing public datasets.\n4. Apply to \"junior data analyst\" or \"business analyst\" roles.\n\n## What a data analyst does NOT need at the start\nYou do not need machine learning, deep learning, or a statistics degree to get a\nfirst data-analyst job. Those matter more for data-scientist roles later.\n\n## Typical entry-level expectations\n- Comfortable writing SQL queries without help.\n- Can build a clean dashboard and explain what it shows.\n- Can take a vague business question and turn it into a data question."
+  },
+  {
+    "index": 2,
+    "source": "resume_writing_tips.md",
+    "text": "# Resume Writing Tips\n\nA resume's job is to get you an interview. It should be easy to scan in under a\nminute and show clear evidence of what you can do.\n\n## Structure\n- **One page** for students and early-career candidates.\n- Order: contact details, short summary, skills, experience/projects, education.\n- Put the most relevant section highest for the role you are applying to.\n\n## Writing strong bullet points\n- Start each bullet with an action verb (Built, Analysed, Automated, Led).\n- Show a result or number where you can (\"cut report time from 2 hours to 10 minutes\").\n- Avoid vague lines like \"responsible for various tasks\".\n\n## Skills section\n- List the specific tools and languages the job asks for, only if you actually\n  know them.\n- Group them (Languages, Tools, Databases) so a reader"
+  },
+  {
+    "index": 3,
+    "source": "resume_writing_tips.md",
+    "text": "on\n- List the specific tools and languages the job asks for, only if you actually\n  know them.\n- Group them (Languages, Tools, Databases) so a reader finds them fast.\n\n## Common mistakes\n- A long paragraph objective instead of a short summary.\n- Listing every course or skill instead of the relevant ones.\n- Spelling and formatting errors — proofread, and keep fonts and spacing consistent.\n\n## Tailoring for a specific job\nRead the job description, note the skills it repeats, and make sure those exact\nwords appear on your resume if they are true for you. This also helps you pass the\nautomated filters many companies use."
+  },
+  {
+    "index": 4,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "# AI Engineer Roadmap 2025 -- Skills, Tools, and Career Path\n\n## 1. What Is an AI Engineer?\n\nAn AI Engineer builds, integrates, deploys, and maintains software\nsystems that use artificial intelligence. The role combines software\nengineering, machine learning, data work, model integration, and\nproduction operations.\n\nA modern AI Engineer may work on:\n\n-   Machine-learning applications\n-   Deep-learning systems\n-   LLM-powered applications\n-   Retrieval-Augmented Generation (RAG)\n-   AI agents and tool-using systems\n-   AI APIs and backend services\n-   Model deployment and monitoring\n-   Data and evaluation pipelines\n\nThe role sits at the intersection of software engineering, machine\nlearning, data engineering, and MLOps.\n\n## 2. Core Skill Areas\n\n### A. Programming and Software Engineering"
+  },
+  {
+    "index": 5,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "section of software engineering, machine\nlearning, data engineering, and MLOps.\n\n## 2. Core Skill Areas\n\n### A. Programming and Software Engineering\n\nLearn Python first because it is widely used across AI development.\n\nTopics:\n\n-   Python syntax and data structures\n-   Functions and modules\n-   Object-oriented programming\n-   Exception handling\n-   File and API handling\n-   Virtual environments and package management\n-   Async programming basics\n-   Testing and debugging\n-   Git and GitHub\n-   Linux/CLI basics\n-   REST APIs\n-   FastAPI\n\nUseful tools:\n\n-   Python\n-   Jupyter\n-   Git\n-   GitHub\n-   VS Code\n-   FastAPI\n\n### B. Mathematics and Statistics\n\nYou do not need to become a mathematician, but you should understand the\nmathematics behind common models.\n\nLearn:\n\n-   Linear algebra\n    -"
+  },
+  {
+    "index": 6,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "atistics\n\nYou do not need to become a mathematician, but you should understand the\nmathematics behind common models.\n\nLearn:\n\n-   Linear algebra\n    -   Vectors\n    -   Matrices\n    -   Matrix multiplication\n    -   Dot products\n    -   Eigenvalues and eigenvectors\n-   Probability\n    -   Conditional probability\n    -   Bayes' theorem\n    -   Probability distributions\n-   Statistics\n    -   Mean, median, variance, standard deviation\n    -   Sampling\n    -   Correlation\n    -   Hypothesis testing\n-   Calculus\n    -   Derivatives\n    -   Gradients\n    -   Chain rule\n-   Optimization\n    -   Gradient descent\n    -   Learning rate\n    -   Loss functions\n\n### C. Data Skills\n\nAI systems depend heavily on good data.\n\nLearn:\n\n-   Data cleaning\n-   Exploratory Data Analysis (EDA)\n-   Feature engine"
+  },
+  {
+    "index": 7,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "nctions\n\n### C. Data Skills\n\nAI systems depend heavily on good data.\n\nLearn:\n\n-   Data cleaning\n-   Exploratory Data Analysis (EDA)\n-   Feature engineering\n-   Data visualization\n-   SQL\n-   ETL concepts\n-   Data validation\n-   Basic data pipelines\n\nUseful tools:\n\n-   NumPy\n-   pandas\n-   Matplotlib\n-   Plotly\n-   SQL\n-   Apache Spark\n-   Apache Airflow\n\n## 3. Machine Learning\n\nUnderstand the fundamentals before moving deeply into generative AI.\n\n### Supervised Learning\n\nLearn:\n\n-   Linear regression\n-   Logistic regression\n-   Decision trees\n-   Random forests\n-   Gradient boosting\n-   Support Vector Machines\n-   k-Nearest Neighbors\n\n### Unsupervised Learning\n\nLearn:\n\n-   Clustering\n-   k-Means\n-   Hierarchical clustering\n-   Dimensionality reduction\n-   PCA\n\n### Model Evaluation\n\nUnderst"
+  },
+  {
+    "index": 8,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "upervised Learning\n\nLearn:\n\n-   Clustering\n-   k-Means\n-   Hierarchical clustering\n-   Dimensionality reduction\n-   PCA\n\n### Model Evaluation\n\nUnderstand:\n\n-   Train/validation/test splits\n-   Cross-validation\n-   Accuracy\n-   Precision\n-   Recall\n-   F1-score\n-   ROC-AUC\n-   Mean squared error\n-   Mean absolute error\n-   Confusion matrices\n\nAlso learn:\n\n-   Overfitting\n-   Underfitting\n-   Regularization\n-   Hyperparameter tuning\n-   Feature selection\n\nPrimary beginner framework:\n\n-   scikit-learn\n\n## 4. Deep Learning\n\nLearn how neural networks work and how to train them.\n\nTopics:\n\n-   Perceptrons\n-   Neural networks\n-   Forward propagation\n-   Backpropagation\n-   Activation functions\n-   Loss functions\n-   Optimizers\n-   Batch size\n-   Epochs\n-   Learning rates\n-   Regularization\n-   Tra"
+  },
+  {
+    "index": 9,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "-   Backpropagation\n-   Activation functions\n-   Loss functions\n-   Optimizers\n-   Batch size\n-   Epochs\n-   Learning rates\n-   Regularization\n-   Transfer learning\n\nImportant architectures:\n\n-   CNNs for computer vision\n-   RNNs and sequence models\n-   Transformers\n\nFrameworks:\n\n-   PyTorch\n-   TensorFlow\n\nFor a modern AI-engineering path, PyTorch is particularly useful to\nlearn deeply, while familiarity with TensorFlow is also valuable.\n\n## 5. Natural Language Processing\n\nLearn the foundations of language-processing systems.\n\nTopics:\n\n-   Tokenization\n-   Text preprocessing\n-   Embeddings\n-   Text classification\n-   Named Entity Recognition\n-   Semantic similarity\n-   Attention\n-   Transformers\n\nUseful libraries:\n\n-   Hugging Face Transformers\n-   spaCy\n-   NLTK\n\n## 6. Generative AI and"
+  },
+  {
+    "index": 10,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "-   Semantic similarity\n-   Attention\n-   Transformers\n\nUseful libraries:\n\n-   Hugging Face Transformers\n-   spaCy\n-   NLTK\n\n## 6. Generative AI and LLMs\n\nModern AI engineering increasingly involves integrating foundation\nmodels into applications.\n\nLearn:\n\n-   What LLMs are\n-   Tokens and context windows\n-   Transformer architecture\n-   Prompt engineering\n-   System/user instructions\n-   Structured outputs\n-   Function/tool calling\n-   Streaming\n-   Model selection\n-   Token and inference-cost management\n-   Hallucination and failure modes\n-   Fine-tuning concepts\n-   Evaluation\n\nCommon ecosystem:\n\n-   Hugging Face\n-   LLM provider APIs\n-   LangChain\n-   LlamaIndex\n\n## 7. Embeddings and RAG\n\nRetrieval-Augmented Generation is an important production pattern for\nconnecting LLMs to external"
+  },
+  {
+    "index": 11,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "LangChain\n-   LlamaIndex\n\n## 7. Embeddings and RAG\n\nRetrieval-Augmented Generation is an important production pattern for\nconnecting LLMs to external knowledge.\n\nA typical RAG pipeline:\n\n1.  Collect documents\n2.  Clean the documents\n3.  Split documents into chunks\n4.  Generate embeddings\n5.  Store embeddings in a vector database\n6.  Retrieve relevant chunks for a query\n7.  Optionally rerank results\n8.  Send retrieved context to an LLM\n9.  Generate the answer\n10. Evaluate retrieval and answer quality\n\nLearn:\n\n-   Embeddings\n-   Chunking strategies\n-   Similarity search\n-   Vector databases\n-   Metadata filtering\n-   Reranking\n-   Retrieval evaluation\n-   Grounded generation\n\nPossible technologies:\n\n-   FAISS\n-   Chroma\n-   Pinecone\n-   Weaviate\n-   Qdrant\n\n## 8. AI Agents\n\nAfter understandi"
+  },
+  {
+    "index": 12,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "luation\n-   Grounded generation\n\nPossible technologies:\n\n-   FAISS\n-   Chroma\n-   Pinecone\n-   Weaviate\n-   Qdrant\n\n## 8. AI Agents\n\nAfter understanding LLM APIs and RAG, learn how applications can use\ntools and multi-step workflows.\n\nLearn:\n\n-   Tool calling\n-   Function calling\n-   Agent state\n-   Planning and orchestration\n-   Workflow graphs\n-   Memory concepts\n-   Human-in-the-loop patterns\n-   Error handling\n-   Agent evaluation\n-   Security boundaries\n\nUseful frameworks:\n\n-   LangGraph\n-   LangChain\n-   LlamaIndex\n\nDo not start with agents before understanding Python, APIs, LLM\nfundamentals, and basic RAG.\n\n## 9. APIs and Application Development\n\nAI Engineers need to turn models into usable applications.\n\nLearn:\n\n-   REST APIs\n-   JSON\n-   Authentication\n-   API validation\n-   Error"
+  },
+  {
+    "index": 13,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "evelopment\n\nAI Engineers need to turn models into usable applications.\n\nLearn:\n\n-   REST APIs\n-   JSON\n-   Authentication\n-   API validation\n-   Error handling\n-   Rate limiting\n-   Streaming responses\n-   Async APIs\n-   Backend architecture\n\nUseful tools:\n\n-   FastAPI\n-   Pydantic\n-   Postman\n-   Docker\n\nA strong portfolio project should expose an AI capability through an API\nrather than only showing a notebook.\n\n## 10. MLOps and Production\n\nA model is not finished when it works in a notebook.\n\nLearn:\n\n-   Experiment tracking\n-   Model/version management\n-   Data versioning\n-   CI/CD\n-   Containerization\n-   Deployment\n-   Monitoring\n-   Logging\n-   Model performance monitoring\n-   Data drift\n-   Retraining workflows\n\nUseful tools:\n\n-   MLflow\n-   DVC\n-   Docker\n-   Kubernetes\n-   Kubeflo"
+  },
+  {
+    "index": 14,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "ging\n-   Model performance monitoring\n-   Data drift\n-   Retraining workflows\n\nUseful tools:\n\n-   MLflow\n-   DVC\n-   Docker\n-   Kubernetes\n-   Kubeflow\n-   GitHub Actions\n\n## 11. Cloud\n\nLearn at least one major cloud platform.\n\nChoose one primary platform:\n\n-   AWS\n-   Microsoft Azure\n-   Google Cloud\n\nUnderstand:\n\n-   Compute\n-   Storage\n-   Databases\n-   Containers\n-   Serverless concepts\n-   IAM/security basics\n-   Monitoring\n-   Managed ML/AI services\n\nExamples of managed AI/ML platforms include:\n\n-   AWS SageMaker\n-   Google Vertex AI\n-   Azure Machine Learning\n\n## 12. AI System Design\n\nAs you progress, learn how to design complete AI systems.\n\nImportant topics:\n\n-   Architecture diagrams\n-   Data flow\n-   Model selection\n-   Latency\n-   Scalability\n-   Reliability\n-   Cost\n-   Cachin"
+  },
+  {
+    "index": 15,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "stems.\n\nImportant topics:\n\n-   Architecture diagrams\n-   Data flow\n-   Model selection\n-   Latency\n-   Scalability\n-   Reliability\n-   Cost\n-   Caching\n-   Observability\n-   Security\n-   Privacy\n-   Evaluation\n-   Fallback strategies\n\nExample architecture:\n\nUser -\\> Frontend -\\> API -\\> AI Orchestrator -\\> Retrieval/Tools -\\>\nModel -\\> Evaluation/Logging\n\n## 13. Responsible AI\n\nAI Engineers should understand risks associated with AI systems.\n\nLearn:\n\n-   Bias and fairness\n-   Privacy\n-   Data protection\n-   Security\n-   Prompt injection\n-   Data leakage\n-   Hallucination\n-   Unsafe outputs\n-   Access control\n-   Human oversight\n-   Evaluation and monitoring\n\nResponsible AI should be considered during design, not added only after\ndeployment.\n\n## 14. Recommended Learning Order\n\n### Phase 1 -"
+  },
+  {
+    "index": 16,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "and monitoring\n\nResponsible AI should be considered during design, not added only after\ndeployment.\n\n## 14. Recommended Learning Order\n\n### Phase 1 -- Programming Foundations\n\n-   Python\n-   Git/GitHub\n-   Linux basics\n-   SQL\n-   APIs\n\n### Phase 2 -- Data and Mathematics\n\n-   NumPy\n-   pandas\n-   Statistics\n-   Probability\n-   Linear algebra\n-   Data visualization\n\n### Phase 3 -- Machine Learning\n\n-   scikit-learn\n-   Supervised learning\n-   Unsupervised learning\n-   Evaluation\n-   Feature engineering\n-   Model tuning\n\n### Phase 4 -- Deep Learning\n\n-   Neural networks\n-   PyTorch\n-   CNNs\n-   Transformers\n-   Transfer learning\n\n### Phase 5 -- Generative AI\n\n-   LLM fundamentals\n-   Prompt engineering\n-   LLM APIs\n-   Hugging Face\n-   Structured outputs\n-   Tool calling\n\n### Phase 6 -- RA"
+  },
+  {
+    "index": 17,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "-- Generative AI\n\n-   LLM fundamentals\n-   Prompt engineering\n-   LLM APIs\n-   Hugging Face\n-   Structured outputs\n-   Tool calling\n\n### Phase 6 -- RAG\n\n-   Embeddings\n-   Chunking\n-   Vector databases\n-   Retrieval\n-   Reranking\n-   RAG evaluation\n\n### Phase 7 -- Agents\n\n-   Tool use\n-   Agent workflows\n-   LangGraph\n-   State management\n-   Human-in-the-loop\n\n### Phase 8 -- Production AI\n\n-   FastAPI\n-   Docker\n-   Cloud\n-   MLOps\n-   Monitoring\n-   CI/CD\n\n### Phase 9 -- Portfolio and Career\n\n-   Build end-to-end projects\n-   Deploy projects\n-   Document projects on GitHub\n-   Practice system design\n-   Practice coding interviews\n-   Prepare an AI-focused resume\n-   Apply for internships and junior AI/ML roles\n\n## 15. Portfolio Projects\n\n### Beginner\n\n1.  House-price prediction API\n2.  C"
+  },
+  {
+    "index": 18,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "e an AI-focused resume\n-   Apply for internships and junior AI/ML roles\n\n## 15. Portfolio Projects\n\n### Beginner\n\n1.  House-price prediction API\n2.  Customer-churn prediction system\n3.  Spam classifier\n4.  Image classifier\n5.  Sentiment-analysis application\n\n### Intermediate\n\n1.  Document question-answering application\n2.  RAG chatbot over PDFs\n3.  Recommendation system\n4.  Computer-vision defect detector\n5.  ML model deployed with FastAPI and Docker\n\n### Advanced\n\n1.  Production-style RAG platform\n2.  Multi-tool AI agent\n3.  LLM evaluation pipeline\n4.  AI application with authentication, monitoring, and logging\n5.  Cloud-deployed AI service\n6.  End-to-end AI system with CI/CD and automated evaluation\n\n## 16. What Makes a Strong AI Engineer Portfolio?\n\nEach project should demonstrate more"
+  },
+  {
+    "index": 19,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "6.  End-to-end AI system with CI/CD and automated evaluation\n\n## 16. What Makes a Strong AI Engineer Portfolio?\n\nEach project should demonstrate more than model training.\n\nShow:\n\n-   Problem statement\n-   Dataset or knowledge source\n-   Architecture\n-   Data preprocessing\n-   Model or LLM choice\n-   Evaluation metrics\n-   API/application\n-   Deployment\n-   Error handling\n-   Monitoring\n-   README documentation\n-   Limitations and future improvements\n\nA strong end-to-end project can demonstrate that you can move from raw\ndata or user requirements to a working production-style AI application.\n\n## 17. AI Engineer vs Related Roles\n\n  Role              Main Focus\n  ----------------- ----------------------------------------------------\n  AI Engineer       Build and integrate AI-powered applicati"
+  },
+  {
+    "index": 20,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "Main Focus\n  ----------------- ----------------------------------------------------\n  AI Engineer       Build and integrate AI-powered applications\n  ML Engineer       Train, deploy, and operate machine-learning models\n  Data Scientist    Analyze data and develop statistical/ML solutions\n  Data Engineer     Build data infrastructure and pipelines\n  AI Researcher     Develop new AI methods and architectures\n  Prompt Engineer   Optimize prompting and interaction patterns\n\nThe boundaries between these roles vary by company, so job descriptions\nshould always be checked individually.\n\n## 18. Beginner-to-Job-Ready Checklist\n\n-   [ ] Python fundamentals\n-   [ ] Object-oriented programming\n-   [ ] Git and GitHub\n-   [ ] SQL\n-   [ ] NumPy and pandas\n-   [ ] Statistics and probability\n-   [ ]"
+  },
+  {
+    "index": 21,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "ndamentals\n-   [ ] Object-oriented programming\n-   [ ] Git and GitHub\n-   [ ] SQL\n-   [ ] NumPy and pandas\n-   [ ] Statistics and probability\n-   [ ] Linear algebra basics\n-   [ ] Machine-learning fundamentals\n-   [ ] scikit-learn\n-   [ ] Model evaluation\n-   [ ] Deep-learning fundamentals\n-   [ ] PyTorch\n-   [ ] Transformers\n-   [ ] NLP basics\n-   [ ] LLM APIs\n-   [ ] Prompt engineering\n-   [ ] Embeddings\n-   [ ] RAG\n-   [ ] Vector databases\n-   [ ] Tool/function calling\n-   [ ] AI agents\n-   [ ] FastAPI\n-   [ ] Docker\n-   [ ] Cloud fundamentals\n-   [ ] MLOps basics\n-   [ ] AI evaluation\n-   [ ] Responsible AI\n-   [ ] 3--5 portfolio projects\n-   [ ] At least one deployed end-to-end AI project\n\n## 19. Practical Rule\n\nDo not try to learn every AI framework at once.\n\nBuild depth in the funda"
+  },
+  {
+    "index": 22,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "-   [ ] At least one deployed end-to-end AI project\n\n## 19. Practical Rule\n\nDo not try to learn every AI framework at once.\n\nBuild depth in the fundamentals first, then learn tools as they solve\nreal problems.\n\nA practical progression is:\n\n**Python → Data → ML → Deep Learning → LLMs → RAG → Agents → APIs →\nDeployment → MLOps → AI System Design**\n\n## 20. Source Basis\n\nThis guide is an original synthesis based on publicly available\nAI-engineering career and learning-roadmap material, rather than a copy\nof a paywalled Scribd document.\n\nKey public references used:\n\n-   Udacity --- \"How to Become an AI Engineer in 2025: Skills, Tools,\n    and Career Paths\"\n-   Microsoft Learn --- \"Training for AI engineers\"\n-   Codebasics --- \"The Ultimate AI Engineer Roadmap 2025\"\n-   freeCodeCamp --- \"AI Eng"
+  },
+  {
+    "index": 23,
+    "source": "carrer_guides\\AI_Engineer_Roadmap_2025.md",
+    "text": "eer Paths\"\n-   Microsoft Learn --- \"Training for AI engineers\"\n-   Codebasics --- \"The Ultimate AI Engineer Roadmap 2025\"\n-   freeCodeCamp --- \"AI Engineer Roadmap -- How to Learn AI in 2025\"\n-   Toolmingo --- \"AI Engineer Roadmap 2025\"\n-   Jobaaj Learnings --- \"AI Engineer Roadmap: Skills, Tools and Career\n    Path\"\n\nFor an AI Mentor knowledge base, this document should be treated as a\nbroad role/skills roadmap. Individual technologies and job requirements\nshould be verified against current job descriptions because AI tooling\nchanges quickly."
+  },
+  {
+    "index": 24,
+    "source": "carrer_guides\\Backend_Developer_Roadmap.md",
+    "text": "# Backend Developer Roadmap\n\n## 1. What Is a Backend Developer?\n\nA Backend Developer builds the server-side systems that process requests, apply business logic, access data, and communicate with other services.\n\nThe role includes:\n\n- APIs\n- Databases\n- Authentication\n- Business logic\n- Background jobs\n- Caching\n- Security\n- Testing\n- Deployment\n- Monitoring\n\n## 2. Programming\n\nChoose one primary language:\n\n- Python\n- Java\n- JavaScript/TypeScript\n- C#\n- Go\n\nFor a beginner, Python, JavaScript/TypeScript, or Java are practical choices.\n\nLearn:\n\n- Data structures\n- Functions\n- OOP\n- Error handling\n- Modules\n- Testing\n- Logging\n- Concurrency basics\n\n## 3. Web Fundamentals\n\nUnderstand:\n\n- HTTP/HTTPS\n- Request/response\n- Headers\n- Cookies\n- Sessions\n- DNS\n- TLS\n- REST\n- JSON\n- Status codes\n\n## 4."
+  },
+  {
+    "index": 25,
+    "source": "carrer_guides\\Backend_Developer_Roadmap.md",
+    "text": "s\n\n## 3. Web Fundamentals\n\nUnderstand:\n\n- HTTP/HTTPS\n- Request/response\n- Headers\n- Cookies\n- Sessions\n- DNS\n- TLS\n- REST\n- JSON\n- Status codes\n\n## 4. API Development\n\nLearn:\n\n- Routing\n- Controllers\n- Services\n- Validation\n- Serialization\n- Authentication\n- Authorization\n- Pagination\n- Filtering\n- Error handling\n- API versioning\n\nFramework examples:\n\n- FastAPI\n- Django\n- Express\n- Spring Boot\n\n## 5. Databases\n\n### SQL\n\nLearn:\n\n- Tables\n- Keys\n- Constraints\n- CRUD\n- JOINs\n- Aggregation\n- Transactions\n- Indexes\n- Query optimization\n- Normalization\n\nChoose:\n\n- PostgreSQL\n- MySQL\n\n### NoSQL\n\nUnderstand:\n\n- Document databases\n- Key-value stores\n- When NoSQL is useful\n\nExamples:\n\n- MongoDB\n- Redis\n\n## 6. Authentication\n\nLearn:\n\n- Password hashing\n- Sessions\n- JWT\n- OAuth concepts\n- Refresh toke"
+  },
+  {
+    "index": 26,
+    "source": "carrer_guides\\Backend_Developer_Roadmap.md",
+    "text": "When NoSQL is useful\n\nExamples:\n\n- MongoDB\n- Redis\n\n## 6. Authentication\n\nLearn:\n\n- Password hashing\n- Sessions\n- JWT\n- OAuth concepts\n- Refresh tokens\n- Roles\n- Permissions\n- MFA concepts\n\nSecurity principles:\n\n- Never store plain-text passwords\n- Validate input\n- Protect secrets\n- Use HTTPS\n\n## 7. Caching\n\nUnderstand:\n\n- Why caching is useful\n- Cache invalidation\n- TTL\n- Cache-aside pattern\n- Distributed caching\n\nRedis is a common technology.\n\n## 8. Background Processing\n\nLearn:\n\n- Queues\n- Workers\n- Scheduled jobs\n- Retry strategies\n- Idempotency\n\nUseful technologies:\n\n- Celery\n- RabbitMQ\n- Kafka\n\n## 9. Testing\n\nLearn:\n\n- Unit tests\n- Integration tests\n- API tests\n- Database tests\n- End-to-end tests\n\nAlso learn mocking and test fixtures.\n\n## 10. Security\n\nUnderstand:\n\n- SQL injection\n-"
+  },
+  {
+    "index": 27,
+    "source": "carrer_guides\\Backend_Developer_Roadmap.md",
+    "text": "egration tests\n- API tests\n- Database tests\n- End-to-end tests\n\nAlso learn mocking and test fixtures.\n\n## 10. Security\n\nUnderstand:\n\n- SQL injection\n- XSS\n- CSRF\n- CORS\n- SSRF\n- Authentication attacks\n- Rate limiting\n- Secrets management\n- Dependency vulnerabilities\n\n## 11. Docker and Deployment\n\nLearn:\n\n- Images\n- Containers\n- Dockerfiles\n- Compose\n- Environment variables\n- Health checks\n\nCloud basics:\n\n- Compute\n- Storage\n- Databases\n- Networking\n- IAM\n- Monitoring\n\n## 12. System Design\n\nLearn:\n\n- Load balancing\n- Horizontal scaling\n- Caching\n- Database replication\n- Partitioning\n- Queues\n- CDNs\n- Microservices concepts\n- Service discovery\n- Observability\n\nExample:\n\nClient → Load Balancer → API Services → Cache/Database → Queue → Workers\n\n## 13. Observability\n\nLearn:\n\n- Logs\n- Metrics\n-"
+  },
+  {
+    "index": 28,
+    "source": "carrer_guides\\Backend_Developer_Roadmap.md",
+    "text": "- Observability\n\nExample:\n\nClient → Load Balancer → API Services → Cache/Database → Queue → Workers\n\n## 13. Observability\n\nLearn:\n\n- Logs\n- Metrics\n- Traces\n- Alerts\n- Health checks\n- Error tracking\n\n## 14. Portfolio Projects\n\nBeginner:\n\n1. REST API\n2. Authentication API\n3. CRUD application\n\nIntermediate:\n\n1. E-commerce backend\n2. Job portal API\n3. Inventory system\n4. Real-time chat backend\n\nAdvanced:\n\n1. Event-driven backend\n2. Scalable SaaS backend\n3. Payment-style workflow with idempotency\n4. Multi-service backend\n\n## 15. Learning Order\n\nProgramming → HTTP → APIs → SQL → Authentication → Testing → Caching → Queues → Docker → Cloud → System Design\n\n## 16. Job-Ready Checklist\n\n- [ ] One programming language\n- [ ] HTTP\n- [ ] REST APIs\n- [ ] SQL\n- [ ] NoSQL basics\n- [ ] Authentication\n- [ ]"
+  },
+  {
+    "index": 29,
+    "source": "carrer_guides\\Backend_Developer_Roadmap.md",
+    "text": "Design\n\n## 16. Job-Ready Checklist\n\n- [ ] One programming language\n- [ ] HTTP\n- [ ] REST APIs\n- [ ] SQL\n- [ ] NoSQL basics\n- [ ] Authentication\n- [ ] Security\n- [ ] Testing\n- [ ] Git\n- [ ] Docker\n- [ ] Caching\n- [ ] Queues\n- [ ] Cloud basics\n- [ ] System design\n- [ ] Monitoring\n- [ ] 3–5 backend projects\n\nThis guide is an original roadmap for an AI Mentor knowledge base."
+  },
+  {
+    "index": 30,
+    "source": "carrer_guides\\Career_Roadmap_for_Freshers.md",
+    "text": "# Career Roadmap for Freshers\n\n## 1. Purpose\n\nThis guide provides a practical path for a fresher who wants to move from basic programming knowledge to an entry-level technology role.\n\nThe exact path should be adapted to the target role.\n\n## 2. Stage 1 – Foundations\n\nLearn:\n\n- Computer fundamentals\n- Operating systems basics\n- Networking basics\n- Programming fundamentals\n- Data structures\n- Algorithms\n- SQL\n- Git/GitHub\n\nRecommended programming languages:\n\n- Python\n- Java\n- JavaScript\n\nChoose one primary language first.\n\n## 3. Stage 2 – Choose a Career Direction\n\nPossible tracks:\n\n### Software Development\n\nLearn:\n\n- HTML/CSS\n- JavaScript\n- Frontend\n- Backend\n- Databases\n- APIs\n\n### Data Analytics\n\nLearn:\n\n- Excel\n- SQL\n- Statistics\n- Power BI/Tableau\n- Python/pandas\n\n### AI/ML\n\nLearn:\n\n- Py"
+  },
+  {
+    "index": 31,
+    "source": "carrer_guides\\Career_Roadmap_for_Freshers.md",
+    "text": "ntend\n- Backend\n- Databases\n- APIs\n\n### Data Analytics\n\nLearn:\n\n- Excel\n- SQL\n- Statistics\n- Power BI/Tableau\n- Python/pandas\n\n### AI/ML\n\nLearn:\n\n- Python\n- Mathematics\n- Statistics\n- Machine learning\n- Deep learning\n- LLM applications\n\n### GenAI\n\nLearn:\n\n- Python\n- APIs\n- LLMs\n- Prompting\n- Embeddings\n- RAG\n- Agents\n- Evaluation\n- Deployment\n\nDo not attempt all tracks at the same depth simultaneously.\n\n## 4. Stage 3 – Build Skills\n\nFor every technology:\n\n1. Learn the concept.\n2. Write small examples.\n3. Solve exercises.\n4. Build a project.\n5. Document it.\n6. Deploy it when possible.\n\n## 5. Stage 4 – Projects\n\nA fresher portfolio should demonstrate ability rather than contain only certificates.\n\nBeginner projects:\n\n- Calculator\n- To-do application\n- Expense tracker\n- Data dashboard\n- Basic"
+  },
+  {
+    "index": 32,
+    "source": "carrer_guides\\Career_Roadmap_for_Freshers.md",
+    "text": "strate ability rather than contain only certificates.\n\nBeginner projects:\n\n- Calculator\n- To-do application\n- Expense tracker\n- Data dashboard\n- Basic ML model\n\nIntermediate:\n\n- Full-stack application\n- Data analytics project\n- ML prediction API\n- RAG chatbot\n\nAdvanced:\n\n- Cloud-deployed application\n- AI agent\n- Production-style ML/AI system\n\n## 6. GitHub Portfolio\n\nEach important repository should contain:\n\n- Project description\n- Features\n- Technologies\n- Installation\n- How to run\n- Screenshots\n- Architecture\n- API information\n- Results\n- Limitations\n- Future improvements\n\nKeep repositories organized.\n\n## 7. Resume\n\nA fresher resume can include:\n\n1. Name and contact\n2. Professional summary/objective\n3. Technical skills\n4. Projects\n5. Education\n6. Certifications\n7. Achievements\n8. Links"
+  },
+  {
+    "index": 33,
+    "source": "carrer_guides\\Career_Roadmap_for_Freshers.md",
+    "text": "lude:\n\n1. Name and contact\n2. Professional summary/objective\n3. Technical skills\n4. Projects\n5. Education\n6. Certifications\n7. Achievements\n8. Links\n\nPrioritize relevant skills and projects.\n\nAvoid:\n\n- Fake experience\n- Unverified claims\n- Huge lists of unrelated technologies\n\n## 8. Interview Preparation\n\nPrepare:\n\n### Programming\n\n- Arrays\n- Strings\n- Linked lists\n- Stacks\n- Queues\n- Trees\n- Hashing\n- Searching\n- Sorting\n- Recursion\n- Basic dynamic programming\n\n### CS Fundamentals\n\n- OOP\n- DBMS\n- OS\n- Computer networks\n- SQL\n\n### Role Skills\n\nPrepare questions specific to the selected career track.\n\n## 9. Communication\n\nPractice:\n\n- Self-introduction\n- Project explanation\n- Technical explanation\n- Problem-solving explanation\n- Behavioral questions\n\nUse the structure:\n\nSituation → Task → A"
+  },
+  {
+    "index": 34,
+    "source": "carrer_guides\\Career_Roadmap_for_Freshers.md",
+    "text": "roduction\n- Project explanation\n- Technical explanation\n- Problem-solving explanation\n- Behavioral questions\n\nUse the structure:\n\nSituation → Task → Action → Result\n\n## 10. Job Search\n\nUse:\n\n- Company career pages\n- LinkedIn\n- Job portals\n- College placement portals\n- Internship platforms\n- Networking\n\nSearch for:\n\n- Intern\n- Graduate\n- Trainee\n- Junior\n- Associate\n- Entry-level\n\n## 11. Application Strategy\n\nTrack:\n\n- Company\n- Role\n- Date applied\n- Job link\n- Status\n- Interview stage\n- Follow-up date\n\nCustomize the resume for relevant roles.\n\n## 12. 90-Day Example Plan\n\n### Month 1\n\n- Programming\n- Git\n- SQL\n- Data structures\n- Role selection\n\n### Month 2\n\n- Role-specific learning\n- Project 1\n- Project 2\n- Resume draft\n\n### Month 3\n\n- Project 3\n- Deployment\n- Interview preparation\n- Appli"
+  },
+  {
+    "index": 35,
+    "source": "carrer_guides\\Career_Roadmap_for_Freshers.md",
+    "text": "n\n\n### Month 2\n\n- Role-specific learning\n- Project 1\n- Project 2\n- Resume draft\n\n### Month 3\n\n- Project 3\n- Deployment\n- Interview preparation\n- Applications\n\n## 13. Common Mistakes\n\nAvoid:\n\n- Learning too many technologies at once\n- Collecting certificates without projects\n- Copying projects without understanding them\n- Ignoring SQL\n- Ignoring Git\n- Not practicing interviews\n- Applying without a track\n- Failing to explain projects\n\n## 14. Job-Ready Checklist\n\n- [ ] One strong programming language\n- [ ] Git/GitHub\n- [ ] SQL\n- [ ] DSA basics\n- [ ] CS fundamentals\n- [ ] Role-specific skills\n- [ ] 3–5 projects\n- [ ] GitHub portfolio\n- [ ] Resume\n- [ ] LinkedIn/profile\n- [ ] Interview preparation\n- [ ] Application tracker\n- [ ] Consistent applications\n\n## 15. Practical Rule\n\nFor a fresher, dep"
+  },
+  {
+    "index": 36,
+    "source": "carrer_guides\\Career_Roadmap_for_Freshers.md",
+    "text": "- [ ] LinkedIn/profile\n- [ ] Interview preparation\n- [ ] Application tracker\n- [ ] Consistent applications\n\n## 15. Practical Rule\n\nFor a fresher, depth in a focused skill set plus demonstrable projects is usually more useful than claiming dozens of technologies.\n\nLearning → Practice → Project → Document → Deploy → Interview → Apply → Improve\n\nThis guide is an original fresher career roadmap for an AI Mentor knowledge base."
+  },
+  {
+    "index": 37,
+    "source": "carrer_guides\\Data_Analyst_Role_Guide.md",
+    "text": "# Data Analyst Role Guide\n\n## 1. What Is a Data Analyst?\n\nA Data Analyst collects, cleans, analyzes, visualizes, and communicates data to support business and operational decisions.\n\nThe role commonly combines:\n\n- SQL\n- Excel or spreadsheets\n- Statistics\n- Data visualization\n- Business understanding\n- Reporting\n- Dashboard development\n- Data quality\n\n## 2. Core Skill Areas\n\n### A. Excel and Spreadsheets\n\nLearn:\n\n- Formulas\n- SUM, AVERAGE, COUNT\n- IF\n- COUNTIF and COUNTIFS\n- SUMIF and SUMIFS\n- XLOOKUP\n- INDEX/MATCH\n- Text functions\n- Date functions\n- Conditional formatting\n- Data validation\n- Pivot tables\n- Charts\n- Power Query basics\n\n### B. SQL\n\nLearn:\n\n- SELECT\n- WHERE\n- ORDER BY\n- GROUP BY\n- HAVING\n- DISTINCT\n- CASE\n- Aggregate functions\n- JOINs\n- Subqueries\n- CTEs\n- Window functions\n-"
+  },
+  {
+    "index": 38,
+    "source": "carrer_guides\\Data_Analyst_Role_Guide.md",
+    "text": "SQL\n\nLearn:\n\n- SELECT\n- WHERE\n- ORDER BY\n- GROUP BY\n- HAVING\n- DISTINCT\n- CASE\n- Aggregate functions\n- JOINs\n- Subqueries\n- CTEs\n- Window functions\n- Date operations\n- NULL handling\n\nImportant concepts:\n\n- Primary keys\n- Foreign keys\n- Indexes\n- Normalization\n- Query performance\n\n### C. Statistics\n\nUnderstand:\n\n- Mean\n- Median\n- Mode\n- Variance\n- Standard deviation\n- Percentiles\n- Distributions\n- Sampling\n- Correlation\n- Probability\n- Confidence intervals\n- Hypothesis testing\n- A/B testing\n\nRemember that correlation does not automatically establish causation.\n\n## 3. Python for Analytics\n\nLearn:\n\n- Python fundamentals\n- Functions\n- Lists and dictionaries\n- File handling\n- pandas\n- NumPy\n- Matplotlib\n- Seaborn\n- Jupyter\n\nTypical workflow:\n\nLoad → Clean → Explore → Analyze → Visualize → Commu"
+  },
+  {
+    "index": 39,
+    "source": "carrer_guides\\Data_Analyst_Role_Guide.md",
+    "text": "ictionaries\n- File handling\n- pandas\n- NumPy\n- Matplotlib\n- Seaborn\n- Jupyter\n\nTypical workflow:\n\nLoad → Clean → Explore → Analyze → Visualize → Communicate\n\n## 4. Data Cleaning\n\nCommon tasks:\n\n- Missing values\n- Duplicate records\n- Invalid values\n- Incorrect data types\n- Outliers\n- Inconsistent categories\n- Date formatting\n- String cleaning\n- Joining datasets\n\nDocument assumptions made during cleaning.\n\n## 5. Exploratory Data Analysis\n\nAsk:\n\n- What is the distribution?\n- What trends exist?\n- Which groups differ?\n- Are there outliers?\n- What variables are correlated?\n- What changed over time?\n- What requires further investigation?\n\n## 6. Data Visualization\n\nChoose charts according to the question.\n\nExamples:\n\n- Line chart → trends over time\n- Bar chart → category comparison\n- Histogram → d"
+  },
+  {
+    "index": 40,
+    "source": "carrer_guides\\Data_Analyst_Role_Guide.md",
+    "text": "Visualization\n\nChoose charts according to the question.\n\nExamples:\n\n- Line chart → trends over time\n- Bar chart → category comparison\n- Histogram → distribution\n- Scatter plot → relationship\n- Box plot → spread and outliers\n- Heatmap → matrix/correlation patterns\n\nAvoid unnecessary decoration and misleading scales.\n\n## 7. Business Intelligence\n\nPopular tools:\n\n- Power BI\n- Tableau\n- Looker Studio\n\nLearn:\n\n- Data connections\n- Data models\n- Measures\n- Filters\n- Slicers\n- Drill-down\n- Dashboard design\n- KPI cards\n- Scheduled refresh\n\n## 8. Business Metrics\n\nExamples:\n\n- Revenue\n- Profit\n- Gross margin\n- Conversion rate\n- Customer acquisition cost\n- Customer lifetime value\n- Churn rate\n- Retention\n- Average order value\n\nMetrics should have clear definitions.\n\n## 9. Reporting and Communicatio"
+  },
+  {
+    "index": 41,
+    "source": "carrer_guides\\Data_Analyst_Role_Guide.md",
+    "text": "ost\n- Customer lifetime value\n- Churn rate\n- Retention\n- Average order value\n\nMetrics should have clear definitions.\n\n## 9. Reporting and Communication\n\nA strong analyst explains:\n\n1. What happened?\n2. Why might it have happened?\n3. Why does it matter?\n4. What should happen next?\n\nAvoid reporting numbers without context.\n\n## 10. Data Quality\n\nCheck:\n\n- Completeness\n- Accuracy\n- Consistency\n- Timeliness\n- Uniqueness\n- Validity\n\n## 11. Portfolio Projects\n\nBeginner:\n\n1. Sales dashboard\n2. Expense analysis\n3. Student-performance analysis\n4. Marketing campaign analysis\n\nIntermediate:\n\n1. E-commerce customer analysis\n2. Customer churn analysis\n3. HR analytics dashboard\n4. Product funnel analysis\n\nAdvanced:\n\n1. End-to-end BI dashboard\n2. Automated reporting pipeline\n3. Cohort and retention analys"
+  },
+  {
+    "index": 42,
+    "source": "carrer_guides\\Data_Analyst_Role_Guide.md",
+    "text": "R analytics dashboard\n4. Product funnel analysis\n\nAdvanced:\n\n1. End-to-end BI dashboard\n2. Automated reporting pipeline\n3. Cohort and retention analysis\n4. A/B test analysis\n\n## 12. Job-Ready Checklist\n\n- [ ] Excel\n- [ ] SQL\n- [ ] Statistics\n- [ ] Data cleaning\n- [ ] Python/pandas\n- [ ] Data visualization\n- [ ] Power BI or Tableau\n- [ ] Business metrics\n- [ ] Dashboard design\n- [ ] Communication\n- [ ] 3–5 projects\n- [ ] Portfolio/GitHub\n\n## 13. Recommended Learning Order\n\nExcel → SQL → Statistics → Data cleaning → Python/pandas → Visualization → Power BI/Tableau → Business analysis → Portfolio\n\nThis guide is an original career/skills synthesis for an AI Mentor knowledge base."
+  },
+  {
+    "index": 43,
+    "source": "carrer_guides\\Frontend_Developer_Roadmap.md",
+    "text": "# Frontend Developer Roadmap\n\n## 1. What Is a Frontend Developer?\n\nA Frontend Developer builds the part of a web application that users see and interact with.\n\nCore responsibilities include:\n\n- UI implementation\n- Responsive design\n- Accessibility\n- Browser interaction\n- API integration\n- State management\n- Performance\n- Testing\n\n## 2. HTML\n\nLearn:\n\n- Semantic HTML\n- Headings\n- Links\n- Images\n- Forms\n- Tables\n- Lists\n- Multimedia\n- Accessibility attributes\n- SEO fundamentals\n\n## 3. CSS\n\nLearn:\n\n- Selectors\n- Specificity\n- Box model\n- Display\n- Positioning\n- Flexbox\n- Grid\n- Responsive design\n- Media queries\n- Transitions\n- Animations\n- Variables\n\nModern styling options:\n\n- CSS Modules\n- Tailwind CSS\n- Bootstrap\n\n## 4. JavaScript\n\nLearn:\n\n- Variables\n- Data types\n- Operators\n- Conditions\n-"
+  },
+  {
+    "index": 44,
+    "source": "carrer_guides\\Frontend_Developer_Roadmap.md",
+    "text": "les\n\nModern styling options:\n\n- CSS Modules\n- Tailwind CSS\n- Bootstrap\n\n## 4. JavaScript\n\nLearn:\n\n- Variables\n- Data types\n- Operators\n- Conditions\n- Loops\n- Functions\n- Scope\n- Arrays\n- Objects\n- Destructuring\n- Modules\n- DOM\n- Events\n- Promises\n- async/await\n- Fetch\n- Error handling\n\nImportant browser concepts:\n\n- Event bubbling\n- Event delegation\n- localStorage\n- sessionStorage\n- Cookies\n\n## 5. TypeScript\n\nLearn:\n\n- Types\n- Interfaces\n- Type aliases\n- Unions\n- Generics\n- Enums conceptually\n- Function types\n- Type narrowing\n- Utility types\n\nTypeScript helps catch many errors during development.\n\n## 6. Frontend Framework\n\nChoose one primary framework.\n\nReact:\n\n- Components\n- Props\n- State\n- Hooks\n- Forms\n- Routing\n- Context\n- API calls\n- Performance\n- Component architecture\n\nAlso know tha"
+  },
+  {
+    "index": 45,
+    "source": "carrer_guides\\Frontend_Developer_Roadmap.md",
+    "text": "framework.\n\nReact:\n\n- Components\n- Props\n- State\n- Hooks\n- Forms\n- Routing\n- Context\n- API calls\n- Performance\n- Component architecture\n\nAlso know that Angular and Vue are major alternatives.\n\n## 7. State Management\n\nUnderstand:\n\n- Local state\n- Shared state\n- Server state\n- URL state\n\nPossible tools:\n\n- Redux Toolkit\n- Zustand\n- React Query/TanStack Query\n\nDo not introduce global state when local state is sufficient.\n\n## 8. APIs\n\nLearn:\n\n- HTTP\n- REST\n- JSON\n- GET\n- POST\n- PUT/PATCH\n- DELETE\n- Status codes\n- Authentication\n- Loading states\n- Error states\n\n## 9. Accessibility\n\nLearn:\n\n- Semantic HTML\n- Keyboard navigation\n- Labels\n- Focus management\n- Color contrast\n- ARIA concepts\n- Screen-reader awareness\n\n## 10. Performance\n\nLearn:\n\n- Lazy loading\n- Code splitting\n- Image optimization\n-"
+  },
+  {
+    "index": 46,
+    "source": "carrer_guides\\Frontend_Developer_Roadmap.md",
+    "text": "agement\n- Color contrast\n- ARIA concepts\n- Screen-reader awareness\n\n## 10. Performance\n\nLearn:\n\n- Lazy loading\n- Code splitting\n- Image optimization\n- Caching\n- Memoization\n- Bundle analysis\n- Core Web Vitals concepts\n\n## 11. Testing\n\nLearn:\n\n- Unit testing\n- Component testing\n- Integration testing\n- End-to-end testing\n\nTools:\n\n- Vitest/Jest\n- Testing Library\n- Playwright\n- Cypress\n\n## 12. Git\n\nLearn:\n\n- Branches\n- Commits\n- Pull requests\n- Merge conflicts\n- Code review\n\n## 13. Deployment\n\nLearn:\n\n- Build commands\n- Environment variables\n- Static hosting\n- CDN concepts\n- Domains\n- HTTPS\n- CI/CD\n\n## 14. Portfolio Projects\n\nBeginner:\n\n1. Responsive portfolio\n2. To-do app\n3. Weather app\n4. Landing page\n\nIntermediate:\n\n1. E-commerce UI\n2. Admin dashboard\n3. Social media frontend\n4. Job portal"
+  },
+  {
+    "index": 47,
+    "source": "carrer_guides\\Frontend_Developer_Roadmap.md",
+    "text": "sive portfolio\n2. To-do app\n3. Weather app\n4. Landing page\n\nIntermediate:\n\n1. E-commerce UI\n2. Admin dashboard\n3. Social media frontend\n4. Job portal frontend\n\nAdvanced:\n\n1. Real-time collaboration UI\n2. Complex SaaS dashboard\n3. Accessible production-style web app\n4. Full-stack frontend consuming a custom API\n\n## 15. Learning Order\n\nHTML → CSS → JavaScript → Git → TypeScript → React → APIs → State management → Testing → Performance → Deployment\n\n## 16. Job-Ready Checklist\n\n- [ ] HTML\n- [ ] CSS\n- [ ] JavaScript\n- [ ] Responsive design\n- [ ] Accessibility\n- [ ] TypeScript\n- [ ] React/Angular/Vue\n- [ ] APIs\n- [ ] State management\n- [ ] Testing\n- [ ] Git/GitHub\n- [ ] Performance\n- [ ] Deployment\n- [ ] 3–5 projects\n\nThis guide is an original roadmap for an AI Mentor knowledge base."
+  },
+  {
+    "index": 48,
+    "source": "carrer_guides\\Full_Stack_Developer_Role_Guide.md",
+    "text": "# Full Stack Developer Role Guide\n\n## 1. What Is a Full Stack Developer?\n\nA Full Stack Developer builds and maintains both the client-side and server-side parts of web applications. The role combines frontend development, backend development, databases, APIs, testing, deployment, and application architecture.\n\nA modern Full Stack Developer may work on:\n\n- User interfaces\n- Responsive web applications\n- Backend services\n- REST APIs\n- Databases\n- Authentication and authorization\n- Cloud deployment\n- Testing and debugging\n- CI/CD\n- Performance and security\n\n## 2. Core Skill Areas\n\n### A. HTML and Web Fundamentals\n\nLearn:\n\n- HTML5\n- Semantic elements\n- Forms\n- Tables\n- Accessibility basics\n- Browser concepts\n- HTTP and HTTPS\n- URLs and DNS basics\n- Cookies and storage\n\n### B. CSS\n\nLearn:\n\n- Se"
+  },
+  {
+    "index": 49,
+    "source": "carrer_guides\\Full_Stack_Developer_Role_Guide.md",
+    "text": "ents\n- Forms\n- Tables\n- Accessibility basics\n- Browser concepts\n- HTTP and HTTPS\n- URLs and DNS basics\n- Cookies and storage\n\n### B. CSS\n\nLearn:\n\n- Selectors\n- Box model\n- Positioning\n- Flexbox\n- Grid\n- Responsive design\n- Media queries\n- Transitions and animations\n- CSS variables\n- Component styling\n\nUseful tools:\n\n- CSS\n- Bootstrap\n- Tailwind CSS\n\n### C. JavaScript\n\nLearn:\n\n- Variables and data types\n- Functions\n- Arrays and objects\n- DOM manipulation\n- Events\n- Event bubbling and delegation\n- Promises\n- async/await\n- Fetch and APIs\n- Modules\n- Error handling\n- Local storage\n- JSON\n\n### D. Frontend Frameworks\n\nChoose one primary framework.\n\nReact topics:\n\n- Components\n- Props\n- State\n- Hooks\n- Forms\n- Routing\n- API integration\n- Context\n- Performance\n- Component architecture\n\nOther ecosy"
+  },
+  {
+    "index": 50,
+    "source": "carrer_guides\\Full_Stack_Developer_Role_Guide.md",
+    "text": "React topics:\n\n- Components\n- Props\n- State\n- Hooks\n- Forms\n- Routing\n- API integration\n- Context\n- Performance\n- Component architecture\n\nOther ecosystems include Angular and Vue.\n\n## 3. Backend Development\n\nUnderstand:\n\n- Client-server architecture\n- REST APIs\n- HTTP methods\n- Status codes\n- JSON\n- Middleware\n- Authentication\n- Authorization\n- Validation\n- Error handling\n- Logging\n\nCommon choices:\n\n- Node.js + Express\n- Python + FastAPI\n- Python + Django\n- Java + Spring Boot\n\n## 4. Databases\n\n### Relational Databases\n\nLearn:\n\n- Tables\n- Primary keys\n- Foreign keys\n- Constraints\n- CRUD\n- SELECT\n- JOIN\n- GROUP BY\n- Indexes\n- Transactions\n- Normalization\n\nCommon databases:\n\n- PostgreSQL\n- MySQL\n\n### NoSQL\n\nUnderstand:\n\n- Documents\n- Collections\n- Key-value storage\n- When NoSQL is appropriat"
+  },
+  {
+    "index": 51,
+    "source": "carrer_guides\\Full_Stack_Developer_Role_Guide.md",
+    "text": "rmalization\n\nCommon databases:\n\n- PostgreSQL\n- MySQL\n\n### NoSQL\n\nUnderstand:\n\n- Documents\n- Collections\n- Key-value storage\n- When NoSQL is appropriate\n\nExample:\n\n- MongoDB\n\n## 5. Authentication and Security\n\nLearn:\n\n- Password hashing\n- Sessions\n- JWT concepts\n- OAuth concepts\n- Role-based access control\n- CORS\n- CSRF\n- XSS\n- SQL injection\n- Input validation\n- Secrets management\n- HTTPS\n\nNever store plain-text passwords.\n\n## 6. APIs and Integration\n\nLearn:\n\n- REST\n- JSON\n- API versioning\n- Pagination\n- Filtering\n- Sorting\n- Authentication headers\n- Rate limiting\n- Error responses\n- Third-party API integration\n\nAlso understand GraphQL at a conceptual level.\n\n## 7. Testing\n\nFrontend:\n\n- Unit tests\n- Component tests\n- End-to-end tests\n\nBackend:\n\n- Unit tests\n- Integration tests\n- API tests"
+  },
+  {
+    "index": 52,
+    "source": "carrer_guides\\Full_Stack_Developer_Role_Guide.md",
+    "text": "nceptual level.\n\n## 7. Testing\n\nFrontend:\n\n- Unit tests\n- Component tests\n- End-to-end tests\n\nBackend:\n\n- Unit tests\n- Integration tests\n- API tests\n\nUseful tools:\n\n- Jest\n- Vitest\n- Playwright\n- Cypress\n- Postman\n\n## 8. Git and Development Workflow\n\nLearn:\n\n- git init\n- clone\n- add\n- commit\n- push\n- pull\n- branch\n- merge\n- rebase basics\n- pull requests\n- code review\n\nUse meaningful commit messages.\n\n## 9. Deployment and Cloud\n\nUnderstand:\n\n- Build processes\n- Environment variables\n- Containers\n- Reverse proxies\n- Domains\n- SSL/TLS\n- Logs\n- Monitoring\n- CI/CD\n\nLearn one cloud platform:\n\n- AWS\n- Azure\n- Google Cloud\n\nUseful tools:\n\n- Docker\n- GitHub Actions\n- Nginx\n\n## 10. System Design Basics\n\nLearn:\n\n- Three-tier architecture\n- Load balancing\n- Caching\n- Database scaling\n- Queues\n- CDN\n-"
+  },
+  {
+    "index": 53,
+    "source": "carrer_guides\\Full_Stack_Developer_Role_Guide.md",
+    "text": "GitHub Actions\n- Nginx\n\n## 10. System Design Basics\n\nLearn:\n\n- Three-tier architecture\n- Load balancing\n- Caching\n- Database scaling\n- Queues\n- CDN\n- Stateless services\n- Horizontal scaling\n- Observability\n\nTypical architecture:\n\nUser → Frontend → API → Backend → Database\n\n## 11. Performance\n\nFrontend:\n\n- Code splitting\n- Lazy loading\n- Image optimization\n- Caching\n- Minification\n- Rendering performance\n\nBackend:\n\n- Database indexing\n- Query optimization\n- Caching\n- Connection pooling\n- Async processing\n\n## 12. Portfolio Projects\n\nBeginner:\n\n1. Responsive portfolio\n2. To-do application\n3. Weather application\n4. Blog frontend\n5. Expense tracker\n\nIntermediate:\n\n1. Full-stack e-commerce application\n2. Authentication system\n3. Job portal\n4. Social media application\n5. Inventory management syst"
+  },
+  {
+    "index": 54,
+    "source": "carrer_guides\\Full_Stack_Developer_Role_Guide.md",
+    "text": "r\n\nIntermediate:\n\n1. Full-stack e-commerce application\n2. Authentication system\n3. Job portal\n4. Social media application\n5. Inventory management system\n\nAdvanced:\n\n1. SaaS application\n2. Real-time collaboration application\n3. Full-stack AI application\n4. Scalable e-commerce platform\n5. Cloud-deployed multi-service application\n\n## 13. Job-Ready Checklist\n\n- [ ] HTML5\n- [ ] CSS\n- [ ] JavaScript\n- [ ] React or another major frontend framework\n- [ ] Backend framework\n- [ ] REST APIs\n- [ ] SQL\n- [ ] One NoSQL database\n- [ ] Authentication\n- [ ] Git/GitHub\n- [ ] Testing\n- [ ] Docker basics\n- [ ] Cloud basics\n- [ ] CI/CD basics\n- [ ] 3–5 projects\n- [ ] One deployed full-stack project\n\n## 14. Recommended Learning Order\n\nHTML/CSS → JavaScript → Git → Frontend framework → APIs → Backend → SQL → Aut"
+  },
+  {
+    "index": 55,
+    "source": "carrer_guides\\Full_Stack_Developer_Role_Guide.md",
+    "text": "[ ] One deployed full-stack project\n\n## 14. Recommended Learning Order\n\nHTML/CSS → JavaScript → Git → Frontend framework → APIs → Backend → SQL → Authentication → Testing → Docker → Cloud → System Design\n\n## 15. What Makes a Strong Full Stack Portfolio?\n\nShow:\n\n- Problem statement\n- Architecture\n- UI screenshots\n- API documentation\n- Database design\n- Authentication\n- Tests\n- Deployment\n- GitHub README\n- Error handling\n- Security considerations\n- Future improvements\n\nThis guide is an original career/skills synthesis for an AI Mentor knowledge base."
+  },
+  {
+    "index": 56,
+    "source": "carrer_guides\\GenAI_Developer_Roadmap.md",
+    "text": "# Generative AI Developer Roadmap\n\n## 1. What Is a GenAI Developer?\n\nA Generative AI Developer builds applications that use foundation models to generate or transform text, images, audio, code, or other content.\n\nThe role combines:\n\n- Software development\n- LLM APIs\n- Prompt engineering\n- Retrieval\n- Embeddings\n- RAG\n- Tool calling\n- AI agents\n- Evaluation\n- Deployment\n\n## 2. Programming Foundations\n\nLearn:\n\n- Python\n- Data structures\n- Functions\n- Classes\n- Error handling\n- Async programming\n- JSON\n- HTTP\n- REST APIs\n- Git/GitHub\n\nUseful tools:\n\n- Python\n- FastAPI\n- Pydantic\n- Postman\n\n## 3. LLM Fundamentals\n\nUnderstand:\n\n- Tokens\n- Context windows\n- Transformer architecture\n- Attention\n- Pretraining\n- Fine-tuning\n- Inference\n- Temperature\n- Sampling\n- Hallucinations\n\nLearn the difference"
+  },
+  {
+    "index": 57,
+    "source": "carrer_guides\\GenAI_Developer_Roadmap.md",
+    "text": "windows\n- Transformer architecture\n- Attention\n- Pretraining\n- Fine-tuning\n- Inference\n- Temperature\n- Sampling\n- Hallucinations\n\nLearn the difference between:\n\n- Base models\n- Instruction-tuned models\n- Chat models\n- Embedding models\n- Reranking models\n\n## 4. Prompt Engineering\n\nLearn:\n\n- Clear instructions\n- Role/context\n- Few-shot examples\n- Structured outputs\n- Delimiters\n- Output constraints\n- Prompt templates\n- Prompt versioning\n\nAdvanced topics:\n\n- Reasoning-oriented workflows\n- Tool-use prompts\n- Self-checking patterns\n- Guardrails\n\nPrompt engineering should complement good application design rather than replace it.\n\n## 5. LLM Application Development\n\nLearn:\n\n- Model APIs\n- Streaming\n- Function calling\n- Structured JSON outputs\n- Conversation state\n- Token usage\n- Cost control\n- Re"
+  },
+  {
+    "index": 58,
+    "source": "carrer_guides\\GenAI_Developer_Roadmap.md",
+    "text": "tion Development\n\nLearn:\n\n- Model APIs\n- Streaming\n- Function calling\n- Structured JSON outputs\n- Conversation state\n- Token usage\n- Cost control\n- Retries\n- Timeouts\n- Rate limits\n\n## 6. Embeddings\n\nEmbeddings convert information into numerical representations useful for semantic comparison.\n\nLearn:\n\n- Embedding generation\n- Similarity\n- Cosine similarity\n- Chunk embeddings\n- Query embeddings\n- Embedding model selection\n\nUse embeddings for:\n\n- Semantic search\n- Recommendations\n- Retrieval\n- Clustering\n\n## 7. RAG\n\nTypical pipeline:\n\nDocuments → Parsing → Chunking → Embeddings → Vector Store → Retrieval → Reranking → LLM → Answer\n\nLearn:\n\n- Document loaders\n- Chunking\n- Metadata\n- Vector search\n- Hybrid search\n- Reranking\n- Context construction\n- Citations\n- Retrieval evaluation\n- Grounded"
+  },
+  {
+    "index": 59,
+    "source": "carrer_guides\\GenAI_Developer_Roadmap.md",
+    "text": "cument loaders\n- Chunking\n- Metadata\n- Vector search\n- Hybrid search\n- Reranking\n- Context construction\n- Citations\n- Retrieval evaluation\n- Grounded generation\n\nTools:\n\n- FAISS\n- Chroma\n- Qdrant\n- Weaviate\n- Pinecone\n\n## 8. AI Agents\n\nLearn:\n\n- Tool calling\n- Agent state\n- Planning\n- Workflow orchestration\n- Memory concepts\n- Human approval\n- Error recovery\n- Tool permissions\n- Agent evaluation\n\nUseful frameworks:\n\n- LangGraph\n- LangChain\n- LlamaIndex\n\nPrefer deterministic workflows when an agent is unnecessary.\n\n## 9. Multimodal GenAI\n\nUnderstand:\n\n- Vision-language models\n- Image generation\n- Speech-to-text\n- Text-to-speech\n- Document understanding\n- Multimodal embeddings\n\nPotential applications:\n\n- Document extraction\n- Image analysis\n- Voice assistants\n- Visual question answering\n\n##"
+  },
+  {
+    "index": 60,
+    "source": "carrer_guides\\GenAI_Developer_Roadmap.md",
+    "text": "rstanding\n- Multimodal embeddings\n\nPotential applications:\n\n- Document extraction\n- Image analysis\n- Voice assistants\n- Visual question answering\n\n## 10. Fine-Tuning\n\nUnderstand when to use:\n\n- Prompting\n- RAG\n- Fine-tuning\n\nLearn:\n\n- Supervised fine-tuning\n- Dataset preparation\n- Instruction datasets\n- LoRA/PEFT concepts\n- Evaluation before and after tuning\n\nFine-tuning should not automatically be the first solution.\n\n## 11. Evaluation\n\nMeasure:\n\n- Accuracy\n- Relevance\n- Faithfulness\n- Retrieval quality\n- Latency\n- Cost\n- Safety\n\nFor RAG evaluate:\n\n- Retrieval precision\n- Recall\n- Context relevance\n- Answer faithfulness\n\nBuild evaluation datasets instead of relying only on manual testing.\n\n## 12. Security\n\nLearn:\n\n- Prompt injection\n- Indirect prompt injection\n- Data leakage\n- Sensitive i"
+  },
+  {
+    "index": 61,
+    "source": "carrer_guides\\GenAI_Developer_Roadmap.md",
+    "text": "asets instead of relying only on manual testing.\n\n## 12. Security\n\nLearn:\n\n- Prompt injection\n- Indirect prompt injection\n- Data leakage\n- Sensitive information exposure\n- Tool abuse\n- Excessive permissions\n- Output validation\n- Authentication\n- Authorization\n\n## 13. Production\n\nLearn:\n\n- FastAPI\n- Docker\n- Cloud\n- Logging\n- Monitoring\n- Caching\n- Queues\n- Rate limiting\n- CI/CD\n- Evaluation pipelines\n\n## 14. Portfolio Projects\n\nBeginner:\n\n1. LLM chatbot\n2. Summarization application\n3. Structured data extraction tool\n\nIntermediate:\n\n1. PDF RAG chatbot\n2. Knowledge-base assistant\n3. Semantic search application\n4. AI document analyzer\n\nAdvanced:\n\n1. Multi-tool AI agent\n2. Production RAG platform\n3. Multimodal assistant\n4. LLM evaluation platform\n5. AI application with monitoring and guardrail"
+  },
+  {
+    "index": 62,
+    "source": "carrer_guides\\GenAI_Developer_Roadmap.md",
+    "text": "1. Multi-tool AI agent\n2. Production RAG platform\n3. Multimodal assistant\n4. LLM evaluation platform\n5. AI application with monitoring and guardrails\n\n## 15. Learning Order\n\nPython → APIs → LLM fundamentals → Prompting → Embeddings → RAG → Tool calling → Agents → Evaluation → Security → Deployment\n\n## 16. Job-Ready Checklist\n\n- [ ] Python\n- [ ] REST APIs\n- [ ] LLM APIs\n- [ ] Prompt engineering\n- [ ] Embeddings\n- [ ] RAG\n- [ ] Vector databases\n- [ ] Tool calling\n- [ ] Agents\n- [ ] Evaluation\n- [ ] Security\n- [ ] FastAPI\n- [ ] Docker\n- [ ] Cloud\n- [ ] 3–5 projects\n- [ ] One deployed GenAI project\n\nThis guide is an original synthesis for an AI Mentor knowledge base."
+  },
+  {
+    "index": 63,
+    "source": "carrer_guides\\Interview_Preparation_Guide.md",
+    "text": "# Interview Preparation Guide\n\n## 1. Purpose\n\nThis guide helps a fresher prepare for technical, project, behavioral, and role-specific interviews.\n\n## 2. Interview Areas\n\nPrepare:\n\n- Programming\n- DSA\n- OOP\n- DBMS\n- SQL\n- Operating systems\n- Networking\n- Git\n- Projects\n- Role-specific skills\n- Behavioral questions\n\n## 3. Programming Fundamentals\n\nKnow:\n\n- Variables\n- Data types\n- Conditions\n- Loops\n- Functions\n- Recursion\n- OOP\n- Exception handling\n- Complexity\n\nPractice explaining why your solution works.\n\n## 4. Data Structures and Algorithms\n\n### Arrays and Strings\n\nPractice:\n\n- Two pointers\n- Sliding window\n- Prefix sums\n- Frequency counting\n\n### Linked Lists\n\nPractice:\n\n- Traversal\n- Reversal\n- Cycle detection\n- Merging\n\n### Stack and Queue\n\nKnow:\n\n- Implementations\n- Applications\n- Mo"
+  },
+  {
+    "index": 64,
+    "source": "carrer_guides\\Interview_Preparation_Guide.md",
+    "text": "ng\n\n### Linked Lists\n\nPractice:\n\n- Traversal\n- Reversal\n- Cycle detection\n- Merging\n\n### Stack and Queue\n\nKnow:\n\n- Implementations\n- Applications\n- Monotonic stack concepts\n\n### Trees\n\nKnow:\n\n- Traversals\n- BST\n- Height\n- Search\n- Basic recursion\n\n### Graphs\n\nKnow:\n\n- BFS\n- DFS\n- Shortest path concepts\n\n### Sorting and Searching\n\nKnow:\n\n- Linear search\n- Binary search\n- Bubble sort\n- Insertion sort\n- Selection sort\n- Merge sort\n- Quick sort\n\n## 5. Complexity\n\nUnderstand:\n\n- Big O\n- Big Omega\n- Big Theta\n\nBe able to identify:\n\n- Time complexity\n- Space complexity\n\n## 6. OOP\n\nPrepare:\n\n- Class\n- Object\n- Constructor\n- Encapsulation\n- Inheritance\n- Polymorphism\n- Abstraction\n- Interface\n\nBe able to give a real example.\n\n## 7. DBMS and SQL\n\nKnow:\n\n- Primary key\n- Foreign key\n- Normalization\n-"
+  },
+  {
+    "index": 65,
+    "source": "carrer_guides\\Interview_Preparation_Guide.md",
+    "text": "e\n- Polymorphism\n- Abstraction\n- Interface\n\nBe able to give a real example.\n\n## 7. DBMS and SQL\n\nKnow:\n\n- Primary key\n- Foreign key\n- Normalization\n- Transactions\n- ACID\n- Indexes\n- JOINs\n- GROUP BY\n- HAVING\n- Subqueries\n- CTEs\n- Window functions\n\nPractice writing SQL without autocomplete.\n\n## 8. Operating Systems\n\nPrepare:\n\n- Process vs thread\n- Scheduling\n- Deadlock\n- Memory management\n- Virtual memory\n- Paging\n- Synchronization\n\n## 9. Computer Networks\n\nKnow:\n\n- OSI model\n- TCP/IP\n- TCP vs UDP\n- HTTP vs HTTPS\n- DNS\n- IP addresses\n- Routing basics\n- REST APIs\n\n## 10. Git\n\nPrepare:\n\n- clone\n- add\n- commit\n- push\n- pull\n- branch\n- merge\n- pull request\n- conflict resolution\n\n## 11. Project Questions\n\nExpect:\n\n- Why did you build it?\n- What problem does it solve?\n- What was your contribution"
+  },
+  {
+    "index": 66,
+    "source": "carrer_guides\\Interview_Preparation_Guide.md",
+    "text": "l request\n- conflict resolution\n\n## 11. Project Questions\n\nExpect:\n\n- Why did you build it?\n- What problem does it solve?\n- What was your contribution?\n- Why did you choose the technology?\n- What was difficult?\n- How did you test it?\n- What would you improve?\n- How would you scale it?\n- What did you learn?\n\nKnow every important line of code in a project you claim.\n\n## 12. AI/ML Interview Topics\n\nFor AI/ML roles prepare:\n\n- Supervised vs unsupervised learning\n- Overfitting\n- Underfitting\n- Train/validation/test\n- Cross-validation\n- Precision/recall\n- Gradient descent\n- Neural networks\n- Transformers\n- Embeddings\n- RAG\n- Vector databases\n- Model evaluation\n- MLOps basics\n\n## 13. GenAI Interview Topics\n\nPrepare:\n\n- LLM basics\n- Prompt engineering\n- Context windows\n- Tokens\n- Function calling"
+  },
+  {
+    "index": 67,
+    "source": "carrer_guides\\Interview_Preparation_Guide.md",
+    "text": "l evaluation\n- MLOps basics\n\n## 13. GenAI Interview Topics\n\nPrepare:\n\n- LLM basics\n- Prompt engineering\n- Context windows\n- Tokens\n- Function calling\n- RAG pipeline\n- Chunking\n- Embeddings\n- Similarity search\n- Reranking\n- Hallucinations\n- Prompt injection\n- Evaluation\n- Cost and latency\n\n## 14. Frontend Interview Topics\n\nPrepare:\n\n- HTML semantics\n- CSS box model\n- Flexbox\n- Grid\n- JavaScript events\n- Promises\n- async/await\n- DOM\n- React components\n- Props/state\n- Hooks\n- State management\n- API calls\n\n## 15. Backend Interview Topics\n\nPrepare:\n\n- HTTP\n- REST\n- Authentication\n- Authorization\n- SQL\n- Transactions\n- Indexing\n- Caching\n- Queues\n- Docker\n- Scaling\n- System design\n\n## 16. Data Analyst Interview Topics\n\nPrepare:\n\n- Excel\n- SQL\n- Statistics\n- Data cleaning\n- EDA\n- Visualization\n-"
+  },
+  {
+    "index": 68,
+    "source": "carrer_guides\\Interview_Preparation_Guide.md",
+    "text": "Docker\n- Scaling\n- System design\n\n## 16. Data Analyst Interview Topics\n\nPrepare:\n\n- Excel\n- SQL\n- Statistics\n- Data cleaning\n- EDA\n- Visualization\n- KPIs\n- Power BI/Tableau\n- Business cases\n\n## 17. Behavioral Questions\n\nPrepare answers for:\n\n- Tell me about yourself.\n- Why this role?\n- Why this company?\n- What are your strengths?\n- What are you improving?\n- Tell me about a challenge.\n- Tell me about a mistake.\n- Tell me about teamwork.\n- Where do you see yourself developing?\n\nUse real examples.\n\n## 18. Mock Interview Process\n\nRepeat:\n\n1. Pick a topic.\n2. Answer without notes.\n3. Record the answer.\n4. Identify gaps.\n5. Review the concept.\n6. Answer again.\n\n## 19. Interview Checklist\n\n- [ ] Self-introduction\n- [ ] Resume explanation\n- [ ] Every project explained\n- [ ] DSA practice\n- [ ] SQL"
+  },
+  {
+    "index": 69,
+    "source": "carrer_guides\\Interview_Preparation_Guide.md",
+    "text": "Answer again.\n\n## 19. Interview Checklist\n\n- [ ] Self-introduction\n- [ ] Resume explanation\n- [ ] Every project explained\n- [ ] DSA practice\n- [ ] SQL practice\n- [ ] OOP\n- [ ] DBMS\n- [ ] OS\n- [ ] Networking\n- [ ] Git\n- [ ] Role-specific topics\n- [ ] Behavioral questions\n- [ ] Mock interviews\n\n## 20. Final Preparation\n\nBefore an interview:\n\n- Read the job description.\n- Identify required technologies.\n- Review your projects.\n- Practice likely questions.\n- Prepare concise explanations.\n- Test your microphone/camera if needed.\n- Keep your resume available.\n\nThe goal is not memorizing answers. The goal is understanding concepts and communicating your reasoning clearly.\n\nThis guide is an original interview-preparation resource for an AI Mentor knowledge base."
+  },
+  {
+    "index": 70,
+    "source": "carrer_guides\\ML_Engineer_Roadmap.md",
+    "text": "# Machine Learning Engineer Roadmap\n\n## 1. What Is an ML Engineer?\n\nA Machine Learning Engineer designs, trains, evaluates, deploys, and maintains machine-learning systems.\n\nThe role combines:\n\n- Programming\n- Mathematics\n- Data engineering\n- Machine learning\n- Software engineering\n- Deployment\n- MLOps\n\n## 2. Programming\n\nPrimary language:\n\n- Python\n\nLearn:\n\n- Data structures\n- Functions\n- OOP\n- Modules\n- Exceptions\n- Testing\n- Logging\n- APIs\n- Git\n\nUseful libraries:\n\n- NumPy\n- pandas\n- scikit-learn\n\n## 3. Mathematics\n\nLearn:\n\n### Linear Algebra\n\n- Vectors\n- Matrices\n- Dot products\n- Matrix multiplication\n- Eigen concepts\n\n### Statistics\n\n- Mean\n- Variance\n- Distributions\n- Sampling\n- Correlation\n\n### Probability\n\n- Conditional probability\n- Bayes' theorem\n- Random variables\n\n### Calculus"
+  },
+  {
+    "index": 71,
+    "source": "carrer_guides\\ML_Engineer_Roadmap.md",
+    "text": "ean\n- Variance\n- Distributions\n- Sampling\n- Correlation\n\n### Probability\n\n- Conditional probability\n- Bayes' theorem\n- Random variables\n\n### Calculus and Optimization\n\n- Derivatives\n- Gradients\n- Gradient descent\n- Loss functions\n\n## 4. Data Preparation\n\nLearn:\n\n- Data ingestion\n- Cleaning\n- Missing values\n- Outlier handling\n- Encoding\n- Scaling\n- Feature engineering\n- Data splitting\n- Data validation\n\nAvoid data leakage between training and evaluation.\n\n## 5. Machine Learning\n\nSupervised:\n\n- Linear regression\n- Logistic regression\n- Decision trees\n- Random forests\n- Gradient boosting\n- SVM\n\nUnsupervised:\n\n- k-Means\n- Hierarchical clustering\n- PCA\n- Dimensionality reduction\n\n## 6. Evaluation\n\nClassification:\n\n- Accuracy\n- Precision\n- Recall\n- F1\n- ROC-AUC\n- Confusion matrix\n\nRegression:\n\n-"
+  },
+  {
+    "index": 72,
+    "source": "carrer_guides\\ML_Engineer_Roadmap.md",
+    "text": "- PCA\n- Dimensionality reduction\n\n## 6. Evaluation\n\nClassification:\n\n- Accuracy\n- Precision\n- Recall\n- F1\n- ROC-AUC\n- Confusion matrix\n\nRegression:\n\n- MAE\n- MSE\n- RMSE\n- R²\n\nAlso understand:\n\n- Cross-validation\n- Baselines\n- Error analysis\n\n## 7. Feature Engineering\n\nLearn:\n\n- Numerical transformations\n- Categorical encoding\n- Text features\n- Date/time features\n- Aggregation\n- Feature selection\n\nFeature engineering should be driven by the problem and data.\n\n## 8. Deep Learning\n\nLearn:\n\n- Neural networks\n- Backpropagation\n- Optimizers\n- Activation functions\n- Regularization\n- Batch normalization\n- Transfer learning\n\nFramework:\n\n- PyTorch\n\nKnow the purpose of:\n\n- CNNs\n- RNNs\n- Transformers\n\n## 9. Model Development\n\nLearn:\n\n- Experiment tracking\n- Hyperparameter tuning\n- Reproducibility\n- Mod"
+  },
+  {
+    "index": 73,
+    "source": "carrer_guides\\ML_Engineer_Roadmap.md",
+    "text": "the purpose of:\n\n- CNNs\n- RNNs\n- Transformers\n\n## 9. Model Development\n\nLearn:\n\n- Experiment tracking\n- Hyperparameter tuning\n- Reproducibility\n- Model serialization\n- Model versioning\n\nUseful tools:\n\n- MLflow\n- Optuna\n- DVC\n\n## 10. MLOps\n\nLearn:\n\n- Training pipelines\n- Data pipelines\n- Model registry\n- CI/CD\n- Docker\n- Kubernetes basics\n- Monitoring\n- Drift detection\n- Retraining\n\n## 11. Deployment\n\nCommon patterns:\n\n- Batch inference\n- Online inference\n- Streaming inference\n- Edge inference\n\nLearn:\n\n- FastAPI\n- Docker\n- Cloud compute\n- Model serving\n- Logging\n- Monitoring\n\n## 12. ML System Design\n\nUnderstand:\n\n- Data ingestion\n- Feature pipelines\n- Training\n- Validation\n- Model registry\n- Deployment\n- Monitoring\n- Feedback loops\n\nExample:\n\nData → Feature Pipeline → Training → Evaluation"
+  },
+  {
+    "index": 74,
+    "source": "carrer_guides\\ML_Engineer_Roadmap.md",
+    "text": "pelines\n- Training\n- Validation\n- Model registry\n- Deployment\n- Monitoring\n- Feedback loops\n\nExample:\n\nData → Feature Pipeline → Training → Evaluation → Registry → Deployment → Monitoring\n\n## 13. Responsible ML\n\nConsider:\n\n- Fairness\n- Privacy\n- Explainability\n- Data quality\n- Security\n- Robustness\n\n## 14. Portfolio Projects\n\nBeginner:\n\n1. House-price prediction\n2. Customer churn\n3. Spam classification\n\nIntermediate:\n\n1. Recommendation system\n2. Fraud detection\n3. Demand forecasting\n\nAdvanced:\n\n1. End-to-end ML platform\n2. Real-time prediction API\n3. Automated retraining pipeline\n4. Production monitoring system\n\n## 15. Learning Order\n\nPython → Math → Data → ML → Evaluation → Deep Learning → Deployment → MLOps → System Design\n\n## 16. Job-Ready Checklist\n\n- [ ] Python\n- [ ] NumPy/pandas\n- ["
+  },
+  {
+    "index": 75,
+    "source": "carrer_guides\\ML_Engineer_Roadmap.md",
+    "text": "→ Math → Data → ML → Evaluation → Deep Learning → Deployment → MLOps → System Design\n\n## 16. Job-Ready Checklist\n\n- [ ] Python\n- [ ] NumPy/pandas\n- [ ] Statistics\n- [ ] Machine learning\n- [ ] scikit-learn\n- [ ] Model evaluation\n- [ ] Feature engineering\n- [ ] PyTorch\n- [ ] SQL\n- [ ] APIs\n- [ ] Docker\n- [ ] MLflow\n- [ ] Cloud\n- [ ] Monitoring\n- [ ] 3–5 projects\n- [ ] One deployed ML system\n\nThis guide is an original career/skills synthesis for an AI Mentor knowledge base."
+  },
+  {
+    "index": 76,
+    "source": "carrer_guides\\Resume_and_Portfolio_Guide.md",
+    "text": "# Resume and Portfolio Guide\n\n## 1. Purpose\n\nA resume communicates relevant skills and evidence of capability. A portfolio provides deeper proof through projects, code, demos, and documentation.\n\n## 2. Recommended Resume Structure\n\nFor a fresher:\n\n1. Name and contact\n2. Professional summary\n3. Technical skills\n4. Projects\n5. Education\n6. Certifications\n7. Achievements\n8. Links\n\nKeep the most relevant information easy to find.\n\n## 3. Professional Summary\n\nA good summary should communicate:\n\n- Current career direction\n- Main technical strengths\n- Relevant project experience\n- Target role\n\nAvoid generic statements that provide no evidence.\n\n## 4. Technical Skills\n\nOrganize skills into categories.\n\nExample:\n\n### Programming\n\n- Python\n- Java\n- JavaScript\n\n### Web\n\n- HTML\n- CSS\n- React\n- FastAPI"
+  },
+  {
+    "index": 77,
+    "source": "carrer_guides\\Resume_and_Portfolio_Guide.md",
+    "text": ". Technical Skills\n\nOrganize skills into categories.\n\nExample:\n\n### Programming\n\n- Python\n- Java\n- JavaScript\n\n### Web\n\n- HTML\n- CSS\n- React\n- FastAPI\n\n### Data/AI\n\n- SQL\n- pandas\n- scikit-learn\n- PyTorch\n- RAG\n\n### Tools\n\n- Git\n- GitHub\n- Docker\n\nOnly list technologies you can discuss in an interview.\n\n## 5. Project Section\n\nFor every strong project include:\n\n- Project name\n- Problem\n- Technology\n- Implementation\n- Result\n- Link\n\nA useful structure is:\n\n**Built X using Y to solve Z, implementing A and B, resulting in C.**\n\nDo not invent numerical results.\n\n## 6. Project Selection\n\nChoose projects that demonstrate the target role.\n\n### Full Stack\n\nShow:\n\n- Frontend\n- Backend\n- Database\n- Authentication\n- Deployment\n\n### Data Analyst\n\nShow:\n\n- SQL\n- Data cleaning\n- Dashboard\n- Business insi"
+  },
+  {
+    "index": 78,
+    "source": "carrer_guides\\Resume_and_Portfolio_Guide.md",
+    "text": "tack\n\nShow:\n\n- Frontend\n- Backend\n- Database\n- Authentication\n- Deployment\n\n### Data Analyst\n\nShow:\n\n- SQL\n- Data cleaning\n- Dashboard\n- Business insights\n\n### ML Engineer\n\nShow:\n\n- Data pipeline\n- Model\n- Evaluation\n- API\n- Deployment\n\n### GenAI\n\nShow:\n\n- LLM\n- Embeddings\n- RAG\n- Evaluation\n- API\n- Deployment\n\n## 7. GitHub Portfolio\n\nEach repository should contain:\n\n- README\n- Problem statement\n- Features\n- Architecture\n- Tech stack\n- Setup instructions\n- Usage\n- Screenshots\n- Results\n- Testing\n- Limitations\n- Future improvements\n\nKeep the repository clean.\n\n## 8. README Structure\n\nRecommended:\n\n# Project Name\n\n## Overview\n\n## Features\n\n## Architecture\n\n## Tech Stack\n\n## Installation\n\n## How to Run\n\n## Usage\n\n## API\n\n## Results\n\n## Screenshots\n\n## Limitations\n\n## Future Improvements\n\n## L"
+  },
+  {
+    "index": 79,
+    "source": "carrer_guides\\Resume_and_Portfolio_Guide.md",
+    "text": "rchitecture\n\n## Tech Stack\n\n## Installation\n\n## How to Run\n\n## Usage\n\n## API\n\n## Results\n\n## Screenshots\n\n## Limitations\n\n## Future Improvements\n\n## License\n\n## 9. Portfolio Website\n\nA simple portfolio can contain:\n\n- About\n- Skills\n- Projects\n- Resume\n- GitHub\n- Contact\n\nKeep navigation simple.\n\n## 10. ATS-Friendly Resume\n\nUse:\n\n- Standard headings\n- Clear text\n- Consistent formatting\n- Relevant keywords\n- Simple layout\n\nAvoid:\n\n- Excessive graphics\n- Important information inside images\n- Unreadable fonts\n- Keyword stuffing\n\n## 11. Resume Customization\n\nFor every relevant job:\n\n1. Read the job description.\n2. Identify required skills.\n3. Prioritize matching skills.\n4. Reorder relevant projects.\n5. Use accurate terminology.\n6. Remove unrelated information where space is limited.\n\nNever cla"
+  },
+  {
+    "index": 80,
+    "source": "carrer_guides\\Resume_and_Portfolio_Guide.md",
+    "text": "oritize matching skills.\n4. Reorder relevant projects.\n5. Use accurate terminology.\n6. Remove unrelated information where space is limited.\n\nNever claim experience you do not have.\n\n## 12. Quantifying Projects\n\nUse numbers only when they are real.\n\nGood:\n\n- Processed 50,000 records.\n- Built 12 API endpoints.\n- Reduced response time from X to Y based on measured tests.\n\nAvoid fabricated metrics.\n\n## 13. Certificates\n\nCertificates can support learning, but they should not replace projects.\n\nPrioritize:\n\n- Recognized learning programs\n- Practical coursework\n- Relevant certifications\n\n## 14. LinkedIn/Profile\n\nKeep consistent:\n\n- Headline\n- About section\n- Skills\n- Projects\n- Education\n- Certifications\n- GitHub links\n\n## 15. Portfolio Quality Checklist\n\n- [ ] Clear target role\n- [ ] Relevant sk"
+  },
+  {
+    "index": 81,
+    "source": "carrer_guides\\Resume_and_Portfolio_Guide.md",
+    "text": "section\n- Skills\n- Projects\n- Education\n- Certifications\n- GitHub links\n\n## 15. Portfolio Quality Checklist\n\n- [ ] Clear target role\n- [ ] Relevant skills\n- [ ] 3–5 strong projects\n- [ ] Working code\n- [ ] Good README\n- [ ] Screenshots/demos where useful\n- [ ] Deployment where practical\n- [ ] No copied code without understanding\n- [ ] No fake metrics\n- [ ] Consistent resume and GitHub\n\n## 16. Example Portfolio Strategy\n\nFor an aspiring AI Engineer:\n\nProject 1:\nClassical ML prediction system.\n\nProject 2:\nDeep-learning application.\n\nProject 3:\nRAG application using embeddings and a vector database.\n\nProject 4:\nAI agent using tools.\n\nProject 5:\nDeployed production-style AI application with API, Docker, monitoring, and evaluation.\n\n## 17. Common Resume Mistakes\n\nAvoid:\n\n- Long paragraphs\n- Unr"
+  },
+  {
+    "index": 82,
+    "source": "carrer_guides\\Resume_and_Portfolio_Guide.md",
+    "text": "Deployed production-style AI application with API, Docker, monitoring, and evaluation.\n\n## 17. Common Resume Mistakes\n\nAvoid:\n\n- Long paragraphs\n- Unrelated skills\n- Fake experience\n- Repeated keywords\n- Generic objectives\n- Poor grammar\n- Broken links\n- Unexplained projects\n- Listing every course ever taken\n\n## 18. Final Checklist\n\n- [ ] One-page resume where appropriate\n- [ ] Clear target role\n- [ ] Strong summary\n- [ ] Relevant skills\n- [ ] Strong project bullets\n- [ ] Education\n- [ ] Relevant certifications\n- [ ] GitHub link\n- [ ] Portfolio link\n- [ ] No spelling errors\n- [ ] No fake claims\n- [ ] Resume tested against target job descriptions\n\nThis guide is an original resume and portfolio resource for an AI Mentor knowledge base."
+  }
+]
