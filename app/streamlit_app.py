@@ -9,6 +9,8 @@ Flow:
 
     Upload CV
         ↓
+    Validate Resume
+        ↓
     Parse CV
         ↓
     Match Jobs
@@ -23,6 +25,7 @@ import sys
 import json
 import tempfile
 from pathlib import Path
+from html import escape
 
 import streamlit as st
 import numpy as np
@@ -74,47 +77,87 @@ def load_api_key():
     """
     Load Gemini API key.
 
-    Deployment:
-        Uses Streamlit secrets.
+    Priority:
+    1. Streamlit secrets
+    2. Existing environment variable
+    3. Existing .env.example file
 
-    Local development:
-        Uses .env file.
+    A .env file is NOT required.
     """
 
     # --------------------------------------------------------
-    # Streamlit Cloud secrets
+    # 1. Streamlit Secrets
     # --------------------------------------------------------
 
     try:
 
+        # Support GOOGLE_API_KEY
         if "GOOGLE_API_KEY" in st.secrets:
 
-            api_key = st.secrets["GOOGLE_API_KEY"]
+            api_key = str(
+                st.secrets["GOOGLE_API_KEY"]
+            ).strip()
 
             if api_key:
+                os.environ["GOOGLE_API_KEY"] = api_key
+                return api_key
 
-                os.environ["GOOGLE_API_KEY"] = str(api_key)
+        # Support GEMINI_API_KEY
+        if "GEMINI_API_KEY" in st.secrets:
 
-                return str(api_key)
+            api_key = str(
+                st.secrets["GEMINI_API_KEY"]
+            ).strip()
+
+            if api_key:
+                os.environ["GOOGLE_API_KEY"] = api_key
+                os.environ["GEMINI_API_KEY"] = api_key
+                return api_key
 
     except Exception:
         pass
 
 
     # --------------------------------------------------------
-    # Local .env file
+    # 2. Existing environment variable
     # --------------------------------------------------------
 
-    env_file = PROJECT_ROOT / ".env"
+    api_key = os.getenv("GOOGLE_API_KEY")
 
-    if env_file.exists():
+    if api_key:
+
+        api_key = api_key.strip()
+
+        if api_key:
+            return api_key
+
+
+    # Also check GEMINI_API_KEY
+    api_key = os.getenv("GEMINI_API_KEY")
+
+    if api_key:
+
+        api_key = api_key.strip()
+
+        if api_key:
+            os.environ["GOOGLE_API_KEY"] = api_key
+            return api_key
+
+
+    # --------------------------------------------------------
+    # 3. Load existing .env.example
+    # --------------------------------------------------------
+
+    env_example_file = PROJECT_ROOT / ".env.example"
+
+    if env_example_file.exists():
 
         try:
 
             from dotenv import load_dotenv
 
             load_dotenv(
-                env_file,
+                dotenv_path=env_example_file,
                 override=False
             )
 
@@ -122,17 +165,62 @@ def load_api_key():
             pass
 
 
-    api_key = os.getenv(
-        "GOOGLE_API_KEY"
-    )
+    # --------------------------------------------------------
+    # 4. Check environment again
+    # --------------------------------------------------------
+
+    api_key = os.getenv("GOOGLE_API_KEY")
 
     if api_key:
-        return api_key
+
+        api_key = api_key.strip()
+
+        if (
+            api_key
+            and api_key.lower()
+            not in {
+                "your_api_key_here",
+                "your_google_api_key_here",
+                "your_gemini_api_key_here",
+                "your_actual_api_key",
+                "replace_with_your_api_key"
+            }
+        ):
+            return api_key
+
+
+    # Also check GEMINI_API_KEY
+    api_key = os.getenv("GEMINI_API_KEY")
+
+    if api_key:
+
+        api_key = api_key.strip()
+
+        if (
+            api_key
+            and api_key.lower()
+            not in {
+                "your_api_key_here",
+                "your_google_api_key_here",
+                "your_gemini_api_key_here",
+                "your_actual_api_key",
+                "replace_with_your_api_key"
+            }
+        ):
+
+            os.environ["GOOGLE_API_KEY"] = api_key
+
+            return api_key
+
 
     return None
 
 
 API_KEY = load_api_key()
+
+
+if API_KEY:
+    os.environ["GOOGLE_API_KEY"] = API_KEY
 
 
 # ============================================================
@@ -168,36 +256,164 @@ st.markdown(
     """
     <style>
 
+    /* ========================================================
+       GLOBAL
+       ======================================================== */
+
     .main-title {
         font-size: 42px;
-        font-weight: 700;
-        margin-bottom: 5px;
+        font-weight: 750;
+        letter-spacing: -1px;
+        margin-bottom: 4px;
     }
 
     .subtitle {
-        font-size: 18px;
-        margin-bottom: 25px;
+        font-size: 17px;
+        opacity: 0.72;
+        margin-bottom: 28px;
+        line-height: 1.5;
     }
 
     .section-title {
-        font-size: 25px;
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: -0.3px;
+        margin-top: 18px;
+        margin-bottom: 18px;
+    }
+
+
+    /* ========================================================
+       PROFILE
+       ======================================================== */
+
+    .profile-label {
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        opacity: 0.58;
+        margin-bottom: 8px;
+    }
+
+    .candidate-name {
+        font-size: 30px;
+        font-weight: 750;
+        line-height: 1.2;
+        margin-bottom: 28px;
+    }
+
+    .target-role {
+        font-size: 19px;
         font-weight: 600;
-        margin-top: 20px;
-        margin-bottom: 15px;
+        line-height: 1.4;
+        margin-bottom: 12px;
     }
 
-    .profile-box {
-        padding: 20px;
-        border-radius: 10px;
-        border: 1px solid #ddd;
-        margin-bottom: 15px;
+    .profile-divider {
+        height: 1px;
+        margin: 5px 0 26px 0;
+        background: rgba(128, 128, 128, 0.20);
     }
 
-    .job-box {
-        padding: 18px;
-        border-radius: 10px;
-        border: 1px solid #ddd;
-        margin-bottom: 15px;
+
+    /* ========================================================
+       SKILLS
+       ======================================================== */
+
+    .skills-text {
+        font-size: 17px;
+        line-height: 1.9;
+        font-weight: 450;
+        margin-top: 4px;
+        margin-bottom: 12px;
+    }
+
+
+    /* ========================================================
+       EMPTY VALUES
+       ======================================================== */
+
+    .empty-value {
+        font-size: 15px;
+        opacity: 0.60;
+    }
+
+
+    /* ========================================================
+       JOB CARDS
+       ======================================================== */
+
+    .job-card {
+        padding: 18px 20px;
+        border: 1px solid rgba(128, 128, 128, 0.22);
+        border-radius: 14px;
+        margin-bottom: 14px;
+    }
+
+    .job-title {
+        font-size: 19px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .job-id {
+        font-size: 13px;
+        opacity: 0.62;
+    }
+
+
+    /* ========================================================
+       MENTOR ANSWER
+       ======================================================== */
+
+    .mentor-answer {
+        font-size: 16px;
+        line-height: 1.7;
+        margin-top: 8px;
+        margin-bottom: 18px;
+    }
+
+    .mentor-answer h1,
+    .mentor-answer h2,
+    .mentor-answer h3 {
+        margin-top: 18px;
+        margin-bottom: 8px;
+    }
+
+    .mentor-answer ul,
+    .mentor-answer ol {
+        margin-top: 5px;
+        margin-bottom: 12px;
+    }
+
+
+    /* ========================================================
+       SIDEBAR
+       ======================================================== */
+
+    [data-testid="stSidebar"] {
+        border-right: 1px solid rgba(128, 128, 128, 0.16);
+    }
+
+
+    /* ========================================================
+       BUTTONS
+       ======================================================== */
+
+    .stButton > button {
+        border-radius: 9px;
+        font-weight: 650;
+        min-height: 42px;
+    }
+
+
+    /* ========================================================
+       FILE UPLOADER
+       ======================================================== */
+
+    [data-testid="stFileUploader"] {
+        margin-bottom: 10px;
     }
 
     </style>
@@ -235,9 +451,9 @@ if not API_KEY:
     )
 
     st.info(
-        "For local development, add GOOGLE_API_KEY "
-        "to your .env file. "
-        "For deployment, add it to Streamlit Secrets."
+        "Please configure GOOGLE_API_KEY using "
+        "Streamlit Secrets, an environment variable, "
+        "or your existing .env.example file."
     )
 
     st.stop()
@@ -260,6 +476,7 @@ def load_job_resources():
         "jobs.json"
     )
 
+
     if not index_file.exists():
 
         raise FileNotFoundError(
@@ -267,6 +484,7 @@ def load_job_resources():
             f"{index_file}\n\n"
             "Run Notebook 02 first."
         )
+
 
     if not metadata_file.exists():
 
@@ -276,6 +494,7 @@ def load_job_resources():
             "Run Notebook 02 first."
         )
 
+
     # --------------------------------------------------------
     # Load FAISS
     # --------------------------------------------------------
@@ -283,6 +502,7 @@ def load_job_resources():
     index = faiss.read_index(
         str(index_file)
     )
+
 
     # --------------------------------------------------------
     # Load metadata
@@ -296,6 +516,7 @@ def load_job_resources():
 
         metadata = json.load(file)
 
+
     # --------------------------------------------------------
     # Validate
     # --------------------------------------------------------
@@ -307,12 +528,14 @@ def load_job_resources():
             f"but expected {config.EMBED_DIM}."
         )
 
+
     if index.ntotal != len(metadata):
 
         raise ValueError(
             "FAISS vector count does not match "
             "metadata count."
         )
+
 
     return index, metadata
 
@@ -337,7 +560,145 @@ except Exception as error:
 
 
 # ============================================================
-# 10. JOB MATCHING FUNCTION
+# 10. RESUME VALIDATION FUNCTION
+# ============================================================
+
+def is_likely_resume(resume_text: str):
+    """
+    Check whether extracted text looks like a resume/CV.
+
+    This prevents normal PDF/DOCX documents such as reports,
+    assignments, invoices, books, etc. from being analyzed.
+
+    The check is intentionally based on multiple resume-related
+    sections instead of requiring one exact word.
+    """
+
+    if not resume_text:
+        return False, "The uploaded file contains no readable text."
+
+
+    text = resume_text.lower().strip()
+
+
+    if len(text) < 100:
+
+        return (
+            False,
+            "The uploaded document does not contain enough text "
+            "to be recognized as a resume."
+        )
+
+
+    # --------------------------------------------------------
+    # Resume-related keywords
+    # --------------------------------------------------------
+
+    resume_keywords = [
+        "resume",
+        "curriculum vitae",
+        "cv",
+        "career objective",
+        "professional summary",
+        "profile summary",
+        "work experience",
+        "professional experience",
+        "employment history",
+        "education",
+        "skills",
+        "technical skills",
+        "projects",
+        "certifications",
+        "certificate",
+        "achievements",
+        "internship",
+        "internships",
+        "experience",
+        "contact",
+        "email",
+        "phone",
+        "linkedin",
+        "github"
+    ]
+
+
+    # --------------------------------------------------------
+    # Count matching resume keywords
+    # --------------------------------------------------------
+
+    matched_keywords = [
+        keyword
+        for keyword in resume_keywords
+        if keyword in text
+    ]
+
+
+    # --------------------------------------------------------
+    # Important resume sections
+    # --------------------------------------------------------
+
+    section_keywords = [
+        "education",
+        "skills",
+        "experience",
+        "work experience",
+        "professional experience",
+        "projects",
+        "certifications",
+        "career objective",
+        "professional summary",
+        "employment history"
+    ]
+
+
+    matched_sections = [
+        section
+        for section in section_keywords
+        if section in text
+    ]
+
+
+    # --------------------------------------------------------
+    # Resume identification rules
+    # --------------------------------------------------------
+
+    # Strong condition:
+    # At least 3 resume-related keywords AND
+    # at least 2 resume sections.
+    if (
+        len(matched_keywords) >= 3
+        and len(matched_sections) >= 2
+    ):
+        return True, ""
+
+
+    # Another valid condition:
+    # Contact information + several resume sections.
+    contact_present = (
+        "@" in text
+        or "phone" in text
+        or "mobile" in text
+        or "linkedin" in text
+    )
+
+
+    if (
+        contact_present
+        and len(matched_sections) >= 2
+        and len(matched_keywords) >= 4
+    ):
+        return True, ""
+
+
+    return (
+        False,
+        "The uploaded document does not appear to be a resume/CV. "
+        "Please upload a valid resume in PDF or DOCX format."
+    )
+
+
+# ============================================================
+# 11. JOB MATCHING FUNCTION
 # ============================================================
 
 def match_jobs(
@@ -354,6 +715,7 @@ def match_jobs(
         []
     )
 
+
     if isinstance(skills, list):
 
         skills_text = ", ".join(
@@ -365,12 +727,14 @@ def match_jobs(
 
         skills_text = str(skills)
 
+
     experience = str(
         profile.get(
             "experience",
             ""
         )
     )
+
 
     education = str(
         profile.get(
@@ -379,12 +743,14 @@ def match_jobs(
         )
     )
 
+
     target_role = str(
         profile.get(
             "target_role",
             ""
         )
     )
+
 
     candidate_text = (
         "Target Role: "
@@ -397,6 +763,7 @@ def match_jobs(
         + education
     )
 
+
     # --------------------------------------------------------
     # Create query embedding
     # --------------------------------------------------------
@@ -405,6 +772,7 @@ def match_jobs(
         candidate_text
     )
 
+
     query_vector = np.asarray(
         query_vector,
         dtype=np.float32
@@ -412,6 +780,7 @@ def match_jobs(
         1,
         -1
     )
+
 
     # --------------------------------------------------------
     # Validate embedding dimension
@@ -425,6 +794,7 @@ def match_jobs(
             f"but expected {config.EMBED_DIM}."
         )
 
+
     # --------------------------------------------------------
     # Search FAISS
     # --------------------------------------------------------
@@ -437,7 +807,9 @@ def match_jobs(
         )
     )
 
+
     results = []
+
 
     for score, idx in zip(
         scores[0],
@@ -447,9 +819,11 @@ def match_jobs(
         if idx < 0:
             continue
 
+
         metadata = job_metadata[
             int(idx)
         ]
+
 
         results.append(
             {
@@ -482,28 +856,36 @@ def match_jobs(
             }
         )
 
+
     return results
 
 
 # ============================================================
-# 11. SESSION STATE
+# 12. SESSION STATE
 # ============================================================
 
 if "resume_text" not in st.session_state:
     st.session_state.resume_text = None
 
+
 if "profile" not in st.session_state:
     st.session_state.profile = None
 
+
 if "matched_jobs" not in st.session_state:
     st.session_state.matched_jobs = []
+
 
 if "cv_suggestions" not in st.session_state:
     st.session_state.cv_suggestions = None
 
 
+if "mentor_answer" not in st.session_state:
+    st.session_state.mentor_answer = None
+
+
 # ============================================================
-# 12. SIDEBAR
+# 13. SIDEBAR
 # ============================================================
 
 with st.sidebar:
@@ -540,25 +922,35 @@ with st.sidebar:
 
 
 # ============================================================
-# 13. CV UPLOAD
+# 14. CV UPLOAD
 # ============================================================
 
 st.markdown(
     '<div class="section-title">'
-    '1. Upload Your CV'
+    '📄 1. Upload Your CV'
     '</div>',
     unsafe_allow_html=True
 )
 
 
+st.info(
+    "Only resumes/CVs in PDF or DOCX format are accepted. "
+    "Other documents such as reports, assignments, invoices, "
+    "or books will be rejected."
+)
+
+
+# ============================================================
+# ONLY PDF AND DOCX ARE ALLOWED
+# ============================================================
+
 uploaded_file = st.file_uploader(
     "Upload your resume",
     type=[
         "pdf",
-        "docx",
-        "txt",
-        "md"
-    ]
+        "docx"
+    ],
+    help="Accepted formats: PDF and DOCX resumes only."
 )
 
 
@@ -568,16 +960,18 @@ if uploaded_file is not None:
         f"Uploaded: {uploaded_file.name}"
     )
 
+
     # --------------------------------------------------------
     # Parse button
     # --------------------------------------------------------
 
     if st.button(
-        "🔍 Analyze Resume",
+        "Analyze Resume",
         type="primary"
     ):
 
         temp_path = None
+
 
         with st.spinner(
             "Reading and analyzing your resume..."
@@ -586,12 +980,27 @@ if uploaded_file is not None:
             try:
 
                 # ------------------------------------------------
-                # Save uploaded file temporarily
+                # Validate file extension
                 # ------------------------------------------------
 
                 suffix = Path(
                     uploaded_file.name
-                ).suffix
+                ).suffix.lower()
+
+
+                if suffix not in {
+                    ".pdf",
+                    ".docx"
+                }:
+
+                    raise ValueError(
+                        "Only PDF and DOCX resume files are accepted."
+                    )
+
+
+                # ------------------------------------------------
+                # Save uploaded file temporarily
+                # ------------------------------------------------
 
                 with tempfile.NamedTemporaryFile(
                     delete=False,
@@ -606,6 +1015,7 @@ if uploaded_file is not None:
                         temp_file.name
                     )
 
+
                 # ------------------------------------------------
                 # Extract text
                 # ------------------------------------------------
@@ -614,15 +1024,54 @@ if uploaded_file is not None:
                     temp_path
                 )
 
+
                 if (
                     not resume_text
                     or not resume_text.strip()
                 ):
 
                     raise ValueError(
-                        "Could not extract text "
-                        "from the uploaded resume."
+                        "Could not extract text from the uploaded "
+                        "PDF/DOCX file. Please upload a readable resume."
                     )
+
+
+                # ------------------------------------------------
+                # IMPORTANT:
+                # Check whether the document is actually a resume
+                # ------------------------------------------------
+
+                is_resume, validation_message = (
+                    is_likely_resume(
+                        resume_text
+                    )
+                )
+
+
+                if not is_resume:
+
+                    st.error(
+                        "❌ This document was not accepted."
+                    )
+
+                    st.warning(
+                        validation_message
+                    )
+
+                    st.info(
+                        "Please upload a genuine resume/CV "
+                        "in PDF or DOCX format."
+                    )
+
+                    # Clear previous resume data
+                    st.session_state.resume_text = None
+                    st.session_state.profile = None
+                    st.session_state.matched_jobs = []
+                    st.session_state.cv_suggestions = None
+                    st.session_state.mentor_answer = None
+
+                    st.stop()
+
 
                 # ------------------------------------------------
                 # Parse resume
@@ -631,6 +1080,7 @@ if uploaded_file is not None:
                 profile = parse_resume(
                     resume_text
                 )
+
 
                 # ------------------------------------------------
                 # Match jobs
@@ -641,6 +1091,7 @@ if uploaded_file is not None:
                     config.TOP_N_JOBS
                 )
 
+
                 # ------------------------------------------------
                 # Save in session
                 # ------------------------------------------------
@@ -649,25 +1100,33 @@ if uploaded_file is not None:
                     resume_text
                 )
 
+
                 st.session_state.profile = (
                     profile
                 )
+
 
                 st.session_state.matched_jobs = (
                     matched_jobs
                 )
 
+
                 st.session_state.cv_suggestions = None
 
+                st.session_state.mentor_answer = None
+
+
                 st.success(
-                    "Resume analysis completed."
+                    "✅ Resume analysis completed successfully."
                 )
+
 
             except Exception as error:
 
                 st.error(
                     f"Resume analysis failed:\n\n{error}"
                 )
+
 
             finally:
 
@@ -683,158 +1142,288 @@ if uploaded_file is not None:
 
 
 # ============================================================
-# 14. DISPLAY PARSED PROFILE
+# 15. DISPLAY PARSED PROFILE
 # ============================================================
 
 if st.session_state.profile:
 
-    profile = (
-        st.session_state.profile
-    )
+    profile = st.session_state.profile
 
     st.divider()
 
+
     st.markdown(
         '<div class="section-title">'
-        '2. Parsed Candidate Profile'
+        '👤 2. Parsed Candidate Profile'
         '</div>',
         unsafe_allow_html=True
     )
 
-    col1, col2 = st.columns(2)
+
+    # ========================================================
+    # PROFILE INFORMATION
+    # ========================================================
+
+    col1, col2 = st.columns(
+        [1, 1.35],
+        gap="large"
+    )
+
+
+    # ========================================================
+    # LEFT SIDE
+    # Candidate + Target Role
+    # ========================================================
 
     with col1:
 
+        # ----------------------------------------------------
+        # Candidate
+        # ----------------------------------------------------
+
         st.markdown(
-            '<div class="profile-box">',
+            '<div class="profile-label">Candidate</div>',
             unsafe_allow_html=True
         )
 
-        st.subheader(
-            "Candidate"
-        )
 
-        st.write(
+        candidate_name = str(
             profile.get(
                 "name",
                 ""
             )
-        )
+        ).strip()
+
+
+        if candidate_name:
+
+            st.markdown(
+                f'<div class="candidate-name">'
+                f'{escape(candidate_name)}'
+                f'</div>',
+                unsafe_allow_html=True
+            )
+
+        else:
+
+            st.markdown(
+                '<div class="empty-value">'
+                'Candidate name not found'
+                '</div>',
+                unsafe_allow_html=True
+            )
+
+
+        # ----------------------------------------------------
+        # Divider
+        # ----------------------------------------------------
 
         st.markdown(
-            "</div>",
+            '<div class="profile-divider"></div>',
             unsafe_allow_html=True
         )
 
+
+        # ----------------------------------------------------
+        # Target Role
+        # ----------------------------------------------------
+
         st.markdown(
-            '<div class="profile-box">',
+            '<div class="profile-label">Target Role</div>',
             unsafe_allow_html=True
         )
 
-        st.subheader(
-            "Target Role"
-        )
 
-        st.write(
+        target_role = str(
             profile.get(
                 "target_role",
                 ""
             )
-        )
+        ).strip()
 
-        st.markdown(
-            "</div>",
-            unsafe_allow_html=True
-        )
+
+        if target_role:
+
+            st.markdown(
+                f'<div class="target-role">'
+                f'{escape(target_role)}'
+                f'</div>',
+                unsafe_allow_html=True
+            )
+
+        else:
+
+            st.markdown(
+                '<div class="empty-value">'
+                'Target role not found'
+                '</div>',
+                unsafe_allow_html=True
+            )
+
+
+    # ========================================================
+    # RIGHT SIDE
+    # Skills
+    # ========================================================
 
     with col2:
 
         st.markdown(
-            '<div class="profile-box">',
+            '<div class="profile-label">Skills</div>',
             unsafe_allow_html=True
         )
 
-        st.subheader(
-            "Skills"
-        )
 
         skills = profile.get(
             "skills",
             []
         )
 
-        if isinstance(skills, list):
 
-            if skills:
+        # ----------------------------------------------------
+        # Convert skills to list
+        # ----------------------------------------------------
 
-                for skill in skills:
+        if isinstance(
+            skills,
+            list
+        ):
 
-                    st.write(
-                        f"• {skill}"
-                    )
-
-            else:
-
-                st.write(
-                    "No skills found."
-                )
+            clean_skills = [
+                str(skill).strip()
+                for skill in skills
+                if str(skill).strip()
+            ]
 
         else:
 
-            st.write(
-                skills
+            clean_skills = [
+                skill.strip()
+                for skill in str(
+                    skills
+                ).split(",")
+                if skill.strip()
+            ]
+
+
+        # ----------------------------------------------------
+        # Display skills as plain text
+        # ----------------------------------------------------
+
+        if clean_skills:
+
+            skills_text = " • ".join(
+                escape(skill)
+                for skill in clean_skills
             )
 
-        st.markdown(
-            "</div>",
-            unsafe_allow_html=True
-        )
+
+            st.markdown(
+                f'<div class="skills-text">'
+                f'{skills_text}'
+                f'</div>',
+                unsafe_allow_html=True
+            )
+
+        else:
+
+            st.markdown(
+                '<div class="empty-value">'
+                'No skills found.'
+                '</div>',
+                unsafe_allow_html=True
+            )
+
+
+    # ========================================================
+    # EXPERIENCE & EDUCATION
+    # ========================================================
 
     with st.expander(
         "View Experience and Education"
     ):
 
+        # ----------------------------------------------------
+        # Experience
+        # ----------------------------------------------------
+
         st.subheader(
             "Experience"
         )
 
-        st.write(
+
+        experience = str(
             profile.get(
                 "experience",
                 ""
             )
-        )
+        ).strip()
+
+
+        if experience:
+
+            st.write(
+                experience
+            )
+
+        else:
+
+            st.caption(
+                "No experience information found."
+            )
+
+
+        # ----------------------------------------------------
+        # Education
+        # ----------------------------------------------------
 
         st.subheader(
             "Education"
         )
 
-        st.write(
+
+        education = str(
             profile.get(
                 "education",
                 ""
             )
-        )
+        ).strip()
+
+
+        if education:
+
+            st.write(
+                education
+            )
+
+        else:
+
+            st.caption(
+                "No education information found."
+            )
 
 
 # ============================================================
-# 15. MATCHED JOBS
+# 16. MATCHED JOBS
 # ============================================================
 
 if st.session_state.matched_jobs:
 
     st.divider()
 
+
     st.markdown(
         '<div class="section-title">'
-        '3. Recommended Jobs'
+        '🎯 3. Recommended Jobs'
         '</div>',
         unsafe_allow_html=True
     )
 
+
     st.write(
         "Top matching jobs based on your resume:"
     )
+
 
     for rank, job in enumerate(
         st.session_state.matched_jobs,
@@ -849,9 +1438,11 @@ if st.session_state.matched_jobs:
                 f"{rank}. {job['jobtitle']}"
             )
 
+
             col1, col2 = st.columns(
                 [3, 1]
             )
+
 
             with col1:
 
@@ -861,6 +1452,7 @@ if st.session_state.matched_jobs:
                         f"Job ID: {job['jobid']}"
                     )
 
+
                 if job["skills"]:
 
                     st.write(
@@ -868,12 +1460,14 @@ if st.session_state.matched_jobs:
                         f"{job['skills']}"
                     )
 
+
             with col2:
 
                 st.metric(
                     "Match Score",
                     f"{job['score']:.3f}"
                 )
+
 
             with st.expander(
                 "View Job Description"
@@ -885,7 +1479,7 @@ if st.session_state.matched_jobs:
 
 
 # ============================================================
-# 16. CV SUGGESTIONS
+# 17. CV SUGGESTIONS
 # ============================================================
 
 if (
@@ -895,29 +1489,34 @@ if (
 
     st.divider()
 
+
     st.markdown(
         '<div class="section-title">'
-        '4. CV Improvement Suggestions'
+        '✍️ 4. CV Improvement Suggestions'
         '</div>',
         unsafe_allow_html=True
     )
+
 
     st.write(
         "Get suggestions for improving your CV "
         "for the top matched job."
     )
 
+
     if st.button(
-        "✨ Generate CV Suggestions"
+        "Generate CV Suggestions"
     ):
 
         top_job = (
             st.session_state.matched_jobs[0]
         )
 
+
         job_text = (
             top_job["job_text"]
         )
+
 
         with st.spinner(
             "Generating CV suggestions..."
@@ -932,9 +1531,11 @@ if (
                     )
                 )
 
+
                 st.session_state.cv_suggestions = (
                     suggestions
                 )
+
 
             except Exception as error:
 
@@ -943,11 +1544,13 @@ if (
                     f"{error}"
                 )
 
+
     if st.session_state.cv_suggestions:
 
         st.markdown(
             "### Suggestions"
         )
+
 
         st.markdown(
             st.session_state.cv_suggestions
@@ -955,31 +1558,37 @@ if (
 
 
 # ============================================================
-# 17. CAREER MENTOR
+# 18. CAREER MENTOR
 # ============================================================
 
 st.divider()
 
+
 st.markdown(
     '<div class="section-title">'
-    '5. Career Mentor'
+    '💬 5. Career Mentor'
     '</div>',
     unsafe_allow_html=True
 )
+
 
 st.write(
     "Ask questions about careers using the "
     "career notes knowledge base."
 )
 
+
 question = st.text_input(
     "Ask your career question",
-    placeholder="Enter your career question..."
+    placeholder=(
+        "Example: What skills should I improve "
+        "for an AI Engineer role?"
+    )
 )
 
 
 if st.button(
-    "💬Ask Mentor"
+    "Ask Mentor"
 ):
 
     if not question.strip():
@@ -1004,6 +1613,7 @@ if st.button(
                     question
                 )
 
+
                 # ------------------------------------------------
                 # Handle blocked questions
                 # ------------------------------------------------
@@ -1017,19 +1627,26 @@ if st.button(
 
                         allowed = safety_result[0]
 
+
                         if not allowed:
 
                             message = (
                                 safety_result[1]
                                 if len(safety_result) > 1
-                                else "This question cannot be answered."
+                                else (
+                                    "This question cannot "
+                                    "be answered."
+                                )
                             )
+
 
                             st.warning(
                                 message
                             )
 
+
                             st.stop()
+
 
                     elif isinstance(
                         safety_result,
@@ -1039,10 +1656,13 @@ if st.button(
                         if not safety_result:
 
                             st.warning(
-                                "This question cannot be answered."
+                                "This question cannot "
+                                "be answered."
                             )
 
+
                             st.stop()
+
 
                 # ------------------------------------------------
                 # Ask RAG mentor
@@ -1052,21 +1672,21 @@ if st.button(
                     question
                 )
 
+
                 if answer:
 
-                    st.markdown(
-                        "### Mentor Answer"
-                    )
-
-                    st.markdown(
+                    st.session_state.mentor_answer = (
                         answer
                     )
 
                 else:
 
+                    st.session_state.mentor_answer = None
+
                     st.info(
                         "No answer was generated."
                     )
+
 
             except Exception as error:
 
@@ -1077,10 +1697,85 @@ if st.button(
 
 
 # ============================================================
-# 18. FOOTER
+# 19. DISPLAY MENTOR ANSWER
+# ============================================================
+
+if st.session_state.mentor_answer:
+
+    st.markdown(
+        "### Mentor Answer"
+    )
+
+
+    # --------------------------------------------------------
+    # Display answer as normal Markdown
+    # --------------------------------------------------------
+
+    st.markdown(
+        st.session_state.mentor_answer
+    )
+
+
+    # ========================================================
+    # RECOMMENDED RESOURCES
+    # ========================================================
+
+    st.markdown(
+        "### 📚 Recommended Resources"
+    )
+
+
+    st.caption(
+        "Useful resources to strengthen your skills "
+        "and prepare for your target career."
+    )
+
+
+    # --------------------------------------------------------
+    # RESOURCE LIST
+    # --------------------------------------------------------
+
+    resources = [
+        {
+            "title": "Python Documentation",
+            "url": "https://docs.python.org/3/"
+        },
+        {
+            "title": "Scikit-learn User Guide",
+            "url": "https://scikit-learn.org/stable/user_guide.html"
+        },
+        {
+            "title": "Kaggle Learn",
+            "url": "https://www.kaggle.com/learn"
+        },
+        {
+            "title": "GitHub Skills",
+            "url": "https://skills.github.com/"
+        },
+        {
+            "title": "Hugging Face Learn",
+            "url": "https://huggingface.co/learn"
+        }
+    ]
+
+
+    # --------------------------------------------------------
+    # Display ONLY resource names
+    # --------------------------------------------------------
+
+    for resource in resources:
+
+        st.markdown(
+            f"- [{resource['title']}]({resource['url']})"
+        )
+
+
+# ============================================================
+# 20. FOOTER
 # ============================================================
 
 st.divider()
+
 
 st.caption(
     "SmartHire GenAI • AI-powered career assistance"
