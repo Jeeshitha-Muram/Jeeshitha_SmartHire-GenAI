@@ -81,8 +81,6 @@ def load_api_key():
     1. Streamlit secrets
     2. Existing environment variable
     3. Existing .env.example file
-
-    A .env file is NOT required.
     """
 
     # --------------------------------------------------------
@@ -91,7 +89,6 @@ def load_api_key():
 
     try:
 
-        # Support GOOGLE_API_KEY
         if "GOOGLE_API_KEY" in st.secrets:
 
             api_key = str(
@@ -102,7 +99,6 @@ def load_api_key():
                 os.environ["GOOGLE_API_KEY"] = api_key
                 return api_key
 
-        # Support GEMINI_API_KEY
         if "GEMINI_API_KEY" in st.secrets:
 
             api_key = str(
@@ -132,7 +128,10 @@ def load_api_key():
             return api_key
 
 
-    # Also check GEMINI_API_KEY
+    # --------------------------------------------------------
+    # GEMINI_API_KEY
+    # --------------------------------------------------------
+
     api_key = os.getenv("GEMINI_API_KEY")
 
     if api_key:
@@ -140,7 +139,9 @@ def load_api_key():
         api_key = api_key.strip()
 
         if api_key:
+
             os.environ["GOOGLE_API_KEY"] = api_key
+
             return api_key
 
 
@@ -169,6 +170,15 @@ def load_api_key():
     # 4. Check environment again
     # --------------------------------------------------------
 
+    invalid_keys = {
+        "your_api_key_here",
+        "your_google_api_key_here",
+        "your_gemini_api_key_here",
+        "your_actual_api_key",
+        "replace_with_your_api_key"
+    }
+
+
     api_key = os.getenv("GOOGLE_API_KEY")
 
     if api_key:
@@ -177,19 +187,11 @@ def load_api_key():
 
         if (
             api_key
-            and api_key.lower()
-            not in {
-                "your_api_key_here",
-                "your_google_api_key_here",
-                "your_gemini_api_key_here",
-                "your_actual_api_key",
-                "replace_with_your_api_key"
-            }
+            and api_key.lower() not in invalid_keys
         ):
             return api_key
 
 
-    # Also check GEMINI_API_KEY
     api_key = os.getenv("GEMINI_API_KEY")
 
     if api_key:
@@ -198,14 +200,7 @@ def load_api_key():
 
         if (
             api_key
-            and api_key.lower()
-            not in {
-                "your_api_key_here",
-                "your_google_api_key_here",
-                "your_gemini_api_key_here",
-                "your_actual_api_key",
-                "replace_with_your_api_key"
-            }
+            and api_key.lower() not in invalid_keys
         ):
 
             os.environ["GOOGLE_API_KEY"] = api_key
@@ -564,18 +559,17 @@ except Exception as error:
 # ============================================================
 
 def is_likely_resume(resume_text: str):
+
     """
     Check whether extracted text looks like a resume/CV.
-
-    This prevents normal PDF/DOCX documents such as reports,
-    assignments, invoices, books, etc. from being analyzed.
-
-    The check is intentionally based on multiple resume-related
-    sections instead of requiring one exact word.
     """
 
     if not resume_text:
-        return False, "The uploaded file contains no readable text."
+
+        return (
+            False,
+            "The uploaded file contains no readable text."
+        )
 
 
     text = resume_text.lower().strip()
@@ -595,6 +589,7 @@ def is_likely_resume(resume_text: str):
     # --------------------------------------------------------
 
     resume_keywords = [
+
         "resume",
         "curriculum vitae",
         "cv",
@@ -622,10 +617,6 @@ def is_likely_resume(resume_text: str):
     ]
 
 
-    # --------------------------------------------------------
-    # Count matching resume keywords
-    # --------------------------------------------------------
-
     matched_keywords = [
         keyword
         for keyword in resume_keywords
@@ -638,6 +629,7 @@ def is_likely_resume(resume_text: str):
     # --------------------------------------------------------
 
     section_keywords = [
+
         "education",
         "skills",
         "experience",
@@ -662,18 +654,14 @@ def is_likely_resume(resume_text: str):
     # Resume identification rules
     # --------------------------------------------------------
 
-    # Strong condition:
-    # At least 3 resume-related keywords AND
-    # at least 2 resume sections.
     if (
         len(matched_keywords) >= 3
         and len(matched_sections) >= 2
     ):
+
         return True, ""
 
 
-    # Another valid condition:
-    # Contact information + several resume sections.
     contact_present = (
         "@" in text
         or "phone" in text
@@ -687,6 +675,7 @@ def is_likely_resume(resume_text: str):
         and len(matched_sections) >= 2
         and len(matched_keywords) >= 4
     ):
+
         return True, ""
 
 
@@ -705,6 +694,7 @@ def match_jobs(
     profile: dict,
     top_n: int = 5
 ):
+
     """
     Match a parsed candidate profile
     against the job FAISS index.
@@ -861,7 +851,222 @@ def match_jobs(
 
 
 # ============================================================
-# 12. SESSION STATE
+# 12. CAREER MENTOR QUESTION VALIDATION
+# ============================================================
+
+def is_career_question(question: str):
+    """
+    Determine whether the user's question is related to
+    careers, jobs, resumes, skills, interviews, education,
+    professional development, or career planning.
+
+    Irrelevant questions such as:
+        - What is your name?
+        - Tell me a joke
+        - What is the weather?
+        - Who is the president?
+        - How are you?
+
+    are rejected before the RAG system is called.
+    """
+
+    if not question:
+        return False
+
+
+    question = question.lower().strip()
+
+
+    # --------------------------------------------------------
+    # Remove common punctuation
+    # --------------------------------------------------------
+
+    normalized_question = (
+        question
+        .replace("?", " ")
+        .replace("!", " ")
+        .replace(".", " ")
+        .replace(",", " ")
+        .replace(":", " ")
+        .replace(";", " ")
+    )
+
+
+    # --------------------------------------------------------
+    # Career-related keywords
+    # --------------------------------------------------------
+
+    career_keywords = [
+
+        # Career
+        "career",
+        "careers",
+        "job",
+        "jobs",
+        "occupation",
+        "profession",
+        "professional",
+        "work",
+        "workplace",
+        "employment",
+        "employability",
+
+        # Resume / CV
+        "resume",
+        "cv",
+        "curriculum vitae",
+        "cover letter",
+        "application",
+        "job application",
+        "portfolio",
+        "linkedin",
+        "github",
+
+        # Skills
+        "skill",
+        "skills",
+        "technical skill",
+        "soft skill",
+        "programming",
+        "coding",
+        "python",
+        "java",
+        "javascript",
+        "machine learning",
+        "artificial intelligence",
+        "ai",
+        "data science",
+        "data analyst",
+        "data analytics",
+        "deep learning",
+        "nlp",
+        "cloud",
+        "aws",
+        "azure",
+        "gcp",
+        "sql",
+        "database",
+        "devops",
+        "software development",
+        "software engineer",
+        "developer",
+
+        # Interviews
+        "interview",
+        "interviews",
+        "interview preparation",
+        "interview questions",
+        "hr interview",
+        "technical interview",
+
+        # Education / learning
+        "course",
+        "courses",
+        "certification",
+        "certifications",
+        "certificate",
+        "degree",
+        "education",
+        "college",
+        "university",
+        "learning",
+        "learn",
+        "study",
+        "training",
+
+        # Career development
+        "experience",
+        "internship",
+        "internships",
+        "intern",
+        "promotion",
+        "salary",
+        "salary negotiation",
+        "career growth",
+        "career path",
+        "career goal",
+        "career goals",
+        "career change",
+        "switch career",
+        "switching career",
+        "professional growth",
+        "professional development",
+
+        # Job search
+        "job search",
+        "job searching",
+        "job opportunity",
+        "job opportunities",
+        "job role",
+        "job roles",
+        "vacancy",
+        "vacancies",
+        "hiring",
+        "recruitment",
+        "recruiter",
+        "recruiters",
+
+        # Specific career actions
+        "how to get a job",
+        "how to get hired",
+        "how to prepare",
+        "what should i learn",
+        "what should i improve",
+        "what skills should i improve",
+        "what skills should i learn"
+    ]
+
+
+    # --------------------------------------------------------
+    # Check for career keywords
+    # --------------------------------------------------------
+
+    for keyword in career_keywords:
+
+        if keyword in normalized_question:
+
+            return True
+
+
+    # --------------------------------------------------------
+    # Career question patterns
+    # --------------------------------------------------------
+
+    career_patterns = [
+
+        "how can i improve my resume",
+        "how can i improve my cv",
+        "how do i improve my resume",
+        "how do i improve my cv",
+        "what should i put on my resume",
+        "what should i put on my cv",
+        "how can i get hired",
+        "how can i prepare for an interview",
+        "what should i learn for",
+        "what skills are required for",
+        "what skills do i need for",
+        "how do i become a",
+        "how can i become a",
+        "is this a good career",
+        "which career should i choose",
+        "which job should i choose",
+        "how do i find a job",
+        "how can i find a job"
+    ]
+
+
+    for pattern in career_patterns:
+
+        if pattern in normalized_question:
+
+            return True
+
+
+    return False
+
+
+# ============================================================
+# 13. SESSION STATE
 # ============================================================
 
 if "resume_text" not in st.session_state:
@@ -884,8 +1089,16 @@ if "mentor_answer" not in st.session_state:
     st.session_state.mentor_answer = None
 
 
+if "mentor_question" not in st.session_state:
+    st.session_state.mentor_question = None
+
+
+if "mentor_question_allowed" not in st.session_state:
+    st.session_state.mentor_question_allowed = False
+
+
 # ============================================================
-# 13. SIDEBAR
+# 14. SIDEBAR
 # ============================================================
 
 with st.sidebar:
@@ -922,7 +1135,7 @@ with st.sidebar:
 
 
 # ============================================================
-# 14. CV UPLOAD
+# 15. CV UPLOAD
 # ============================================================
 
 st.markdown(
@@ -940,10 +1153,6 @@ st.info(
 )
 
 
-# ============================================================
-# ONLY PDF AND DOCX ARE ALLOWED
-# ============================================================
-
 uploaded_file = st.file_uploader(
     "Upload your resume",
     type=[
@@ -960,10 +1169,6 @@ if uploaded_file is not None:
         f"Uploaded: {uploaded_file.name}"
     )
 
-
-    # --------------------------------------------------------
-    # Parse button
-    # --------------------------------------------------------
 
     if st.button(
         "Analyze Resume",
@@ -1037,8 +1242,7 @@ if uploaded_file is not None:
 
 
                 # ------------------------------------------------
-                # IMPORTANT:
-                # Check whether the document is actually a resume
+                # Validate resume
                 # ------------------------------------------------
 
                 is_resume, validation_message = (
@@ -1063,12 +1267,16 @@ if uploaded_file is not None:
                         "in PDF or DOCX format."
                     )
 
+
                     # Clear previous resume data
+
                     st.session_state.resume_text = None
                     st.session_state.profile = None
                     st.session_state.matched_jobs = []
                     st.session_state.cv_suggestions = None
                     st.session_state.mentor_answer = None
+                    st.session_state.mentor_question = None
+                    st.session_state.mentor_question_allowed = False
 
                     st.stop()
 
@@ -1093,27 +1301,28 @@ if uploaded_file is not None:
 
 
                 # ------------------------------------------------
-                # Save in session
+                # Save session state
                 # ------------------------------------------------
 
                 st.session_state.resume_text = (
                     resume_text
                 )
 
-
                 st.session_state.profile = (
                     profile
                 )
-
 
                 st.session_state.matched_jobs = (
                     matched_jobs
                 )
 
-
                 st.session_state.cv_suggestions = None
 
                 st.session_state.mentor_answer = None
+
+                st.session_state.mentor_question = None
+
+                st.session_state.mentor_question_allowed = False
 
 
                 st.success(
@@ -1142,7 +1351,7 @@ if uploaded_file is not None:
 
 
 # ============================================================
-# 15. DISPLAY PARSED PROFILE
+# 16. DISPLAY PARSED PROFILE
 # ============================================================
 
 if st.session_state.profile:
@@ -1172,14 +1381,9 @@ if st.session_state.profile:
 
     # ========================================================
     # LEFT SIDE
-    # Candidate + Target Role
     # ========================================================
 
     with col1:
-
-        # ----------------------------------------------------
-        # Candidate
-        # ----------------------------------------------------
 
         st.markdown(
             '<div class="profile-label">Candidate</div>',
@@ -1214,19 +1418,11 @@ if st.session_state.profile:
             )
 
 
-        # ----------------------------------------------------
-        # Divider
-        # ----------------------------------------------------
-
         st.markdown(
             '<div class="profile-divider"></div>',
             unsafe_allow_html=True
         )
 
-
-        # ----------------------------------------------------
-        # Target Role
-        # ----------------------------------------------------
 
         st.markdown(
             '<div class="profile-label">Target Role</div>',
@@ -1263,7 +1459,6 @@ if st.session_state.profile:
 
     # ========================================================
     # RIGHT SIDE
-    # Skills
     # ========================================================
 
     with col2:
@@ -1279,10 +1474,6 @@ if st.session_state.profile:
             []
         )
 
-
-        # ----------------------------------------------------
-        # Convert skills to list
-        # ----------------------------------------------------
 
         if isinstance(
             skills,
@@ -1305,10 +1496,6 @@ if st.session_state.profile:
                 if skill.strip()
             ]
 
-
-        # ----------------------------------------------------
-        # Display skills as plain text
-        # ----------------------------------------------------
 
         if clean_skills:
 
@@ -1343,10 +1530,6 @@ if st.session_state.profile:
         "View Experience and Education"
     ):
 
-        # ----------------------------------------------------
-        # Experience
-        # ----------------------------------------------------
-
         st.subheader(
             "Experience"
         )
@@ -1372,10 +1555,6 @@ if st.session_state.profile:
                 "No experience information found."
             )
 
-
-        # ----------------------------------------------------
-        # Education
-        # ----------------------------------------------------
 
         st.subheader(
             "Education"
@@ -1404,7 +1583,7 @@ if st.session_state.profile:
 
 
 # ============================================================
-# 16. MATCHED JOBS
+# 17. MATCHED JOBS
 # ============================================================
 
 if st.session_state.matched_jobs:
@@ -1479,7 +1658,7 @@ if st.session_state.matched_jobs:
 
 
 # ============================================================
-# 17. CV SUGGESTIONS
+# 18. CV SUGGESTIONS
 # ============================================================
 
 if (
@@ -1558,15 +1737,18 @@ if (
 
 
 # ============================================================
-# 18. CAREER MENTOR
+# 19. CAREER MENTOR
 # ============================================================
 
 st.divider()
 
 
+# IMPORTANT:
+# Number 5 has been removed from the heading.
+
 st.markdown(
     '<div class="section-title">'
-    '💬 5. Career Mentor'
+    '💬 Career Mentor'
     '</div>',
     unsafe_allow_html=True
 )
@@ -1591,125 +1773,206 @@ if st.button(
     "Ask Mentor"
 ):
 
+    # --------------------------------------------------------
+    # Clear previous mentor answer
+    # --------------------------------------------------------
+
+    st.session_state.mentor_answer = None
+
+    st.session_state.mentor_question = None
+
+    st.session_state.mentor_question_allowed = False
+
+
+    # --------------------------------------------------------
+    # Empty question
+    # --------------------------------------------------------
+
     if not question.strip():
 
-        st.warning(
-            "Please enter a career question."
+        st.error(
+            "❌ Please enter a career-related question."
         )
+
 
     else:
 
-        with st.spinner(
-            "Thinking..."
+        clean_question = question.strip()
+
+
+        # ----------------------------------------------------
+        # STEP 1: Career relevance check
+        # ----------------------------------------------------
+
+        if not is_career_question(
+            clean_question
         ):
 
-            try:
+            st.error(
+                "❌ Invalid question. "
+                "Please ask a question related to careers, "
+                "jobs, resumes, skills, interviews, "
+                "education, or professional development."
+            )
 
-                # ------------------------------------------------
-                # Safety check
-                # ------------------------------------------------
-
-                safety_result = check_question(
-                    question
-                )
-
-
-                # ------------------------------------------------
-                # Handle blocked questions
-                # ------------------------------------------------
-
-                if safety_result:
-
-                    if isinstance(
-                        safety_result,
-                        tuple
-                    ):
-
-                        allowed = safety_result[0]
+            st.info(
+                "Example: "
+                "What skills should I learn for an AI Engineer role?"
+            )
 
 
-                        if not allowed:
+            # IMPORTANT:
+            # Do NOT call answer_question()
+            # Do NOT show resources.
 
-                            message = (
-                                safety_result[1]
-                                if len(safety_result) > 1
-                                else (
-                                    "This question cannot "
-                                    "be answered."
-                                )
-                            )
+            st.session_state.mentor_answer = None
 
+            st.session_state.mentor_question = None
 
-                            st.warning(
-                                message
-                            )
+            st.session_state.mentor_question_allowed = False
 
 
-                            st.stop()
+        else:
 
+            # ------------------------------------------------
+            # STEP 2: Existing safety check
+            # ------------------------------------------------
 
-                    elif isinstance(
-                        safety_result,
-                        bool
-                    ):
+            with st.spinner(
+                "Thinking..."
+            ):
 
-                        if not safety_result:
+                try:
 
-                            st.warning(
-                                "This question cannot "
-                                "be answered."
-                            )
-
-
-                            st.stop()
-
-
-                # ------------------------------------------------
-                # Ask RAG mentor
-                # ------------------------------------------------
-
-                answer = answer_question(
-                    question
-                )
-
-
-                if answer:
-
-                    st.session_state.mentor_answer = (
-                        answer
+                    safety_result = check_question(
+                        clean_question
                     )
 
-                else:
+
+                    # ------------------------------------------------
+                    # Handle safety result
+                    # ------------------------------------------------
+
+                    if safety_result:
+
+                        if isinstance(
+                            safety_result,
+                            tuple
+                        ):
+
+                            allowed = safety_result[0]
+
+
+                            if not allowed:
+
+                                message = (
+                                    safety_result[1]
+                                    if len(safety_result) > 1
+                                    else (
+                                        "This question cannot "
+                                        "be answered."
+                                    )
+                                )
+
+
+                                st.error(
+                                    f"❌ {message}"
+                                )
+
+
+                                st.session_state.mentor_answer = None
+
+                                st.session_state.mentor_question = None
+
+                                st.session_state.mentor_question_allowed = False
+
+                                st.stop()
+
+
+                        elif isinstance(
+                            safety_result,
+                            bool
+                        ):
+
+                            if not safety_result:
+
+                                st.error(
+                                    "❌ This question cannot "
+                                    "be answered."
+                                )
+
+
+                                st.session_state.mentor_answer = None
+
+                                st.session_state.mentor_question = None
+
+                                st.session_state.mentor_question_allowed = False
+
+                                st.stop()
+
+
+                    # ------------------------------------------------
+                    # STEP 3: Ask RAG mentor
+                    # ------------------------------------------------
+
+                    answer = answer_question(
+                        clean_question
+                    )
+
+
+                    if answer:
+
+                        st.session_state.mentor_answer = (
+                            answer
+                        )
+
+                        st.session_state.mentor_question = (
+                            clean_question
+                        )
+
+                        st.session_state.mentor_question_allowed = True
+
+
+                    else:
+
+                        st.session_state.mentor_answer = None
+
+                        st.session_state.mentor_question = None
+
+                        st.session_state.mentor_question_allowed = False
+
+                        st.info(
+                            "No answer was generated."
+                        )
+
+
+                except Exception as error:
 
                     st.session_state.mentor_answer = None
 
-                    st.info(
-                        "No answer was generated."
+                    st.session_state.mentor_question = None
+
+                    st.session_state.mentor_question_allowed = False
+
+                    st.error(
+                        "Could not answer the question:\n\n"
+                        f"{error}"
                     )
 
 
-            except Exception as error:
-
-                st.error(
-                    "Could not answer the question:\n\n"
-                    f"{error}"
-                )
-
-
 # ============================================================
-# 19. DISPLAY MENTOR ANSWER
+# 20. DISPLAY MENTOR ANSWER
 # ============================================================
 
-if st.session_state.mentor_answer:
+if (
+    st.session_state.mentor_answer
+    and st.session_state.mentor_question_allowed
+):
 
     st.markdown(
         "### Mentor Answer"
     )
 
-
-    # --------------------------------------------------------
-    # Display answer as normal Markdown
-    # --------------------------------------------------------
 
     st.markdown(
         st.session_state.mentor_answer
@@ -1718,6 +1981,15 @@ if st.session_state.mentor_answer:
 
     # ========================================================
     # RECOMMENDED RESOURCES
+    # ========================================================
+    #
+    # Resources are displayed ONLY when:
+    #
+    # 1. The question passed career validation
+    # 2. The safety check passed
+    # 3. A mentor answer was generated
+    #
+    # Irrelevant questions will NEVER reach this section.
     # ========================================================
 
     st.markdown(
@@ -1731,37 +2003,34 @@ if st.session_state.mentor_answer:
     )
 
 
-    # --------------------------------------------------------
-    # RESOURCE LIST
-    # --------------------------------------------------------
-
     resources = [
+
         {
             "title": "Python Documentation",
             "url": "https://docs.python.org/3/"
         },
+
         {
             "title": "Scikit-learn User Guide",
             "url": "https://scikit-learn.org/stable/user_guide.html"
         },
+
         {
             "title": "Kaggle Learn",
             "url": "https://www.kaggle.com/learn"
         },
+
         {
             "title": "GitHub Skills",
             "url": "https://skills.github.com/"
         },
+
         {
             "title": "Hugging Face Learn",
             "url": "https://huggingface.co/learn"
         }
     ]
 
-
-    # --------------------------------------------------------
-    # Display ONLY resource names
-    # --------------------------------------------------------
 
     for resource in resources:
 
@@ -1771,7 +2040,7 @@ if st.session_state.mentor_answer:
 
 
 # ============================================================
-# 20. FOOTER
+# 21. FOOTER
 # ============================================================
 
 st.divider()
